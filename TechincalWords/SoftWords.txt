@@ -1,12 +1,4 @@
-﻿--==========================================================================================
-Azure key components
-
-Insights
-Azure app services
-Use the Microsoft Graph API
-Azure Pipelines for building and releasing, 
-Azure Test Plans for manual testing and load testing, 
-and Azure Artifacts for sharing different packages.
+﻿
 --==========================================================================================
 Techincal 
 benchmark on how much data my app is  using 
@@ -37,7 +29,7 @@ milestones
 that I mean is the ability to track work consistently across teams.
 in a nutshell 
 Staying aligned is important
-Staying aligned is important
+
 
 --==========================================================================================
 --==========================================================================================
@@ -51,3 +43,4 @@ Staying aligned is important
 
 
  
+ Staying aligned is important

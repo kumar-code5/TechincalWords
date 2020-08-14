@@ -1,0 +1,8 @@
+--==========================================================================================
+Azure key components
+Insights
+Azure app services
+Use the Microsoft Graph API
+Azure Pipelines for building and releasing, 
+Azure Test Plans for manual testing and load testing, 
+and Azure Artifacts for sharing different packages.git 
