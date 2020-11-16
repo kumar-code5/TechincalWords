@@ -1,0 +1,36 @@
+
+empty the remote origin
+git remote rm origin
+
+Shows the origin
+git remote -v
+
+Show git information
+git config --list
+
+Remove git on folder local machine
+rm -rf .git
+
+Add the endpoint url where to fecth/push
+git remote add origin https://github.com/kumar-code5/DotnetAppCrud
+
+git push -f origin master//Its a force  push 
+
+==================For azure devops account ==================
+git remote -v
+git remote add origin https://github.com/kumar-code5/DotnetAppCrud
+git init
+git pull
+git add .
+git commit -m "first commit"
+git push -u origin master
+
+==================For git hub account ==================
+git remote -v
+git config --list
+git init
+git add .
+git commit -m "KP: First commit adding the project"
+git remote add origin https://github.com/kumar-code5/EntityFrameworkPoc-SqlQuery
+git push -u origin --all
+git push -u origin master
