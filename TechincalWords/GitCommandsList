@@ -1,3 +1,15 @@
+*********************************************************************
+git remote -v
+git remote rm origin
+git remote add origin https://KumarCode5@dev.azure.com/KumarCode5/TestCodeReview/_git/CICDTesting-2
+git init
+git pull origin master
+git add .
+git commit -m "KP: First commit to push the Solution to azure repo."
+git push -u origin master
+//If any issues found try the below comamnd 
+git push -f origin master//Its a force  push 
+*********************************************************************
 
 empty the remote origin
 git remote rm origin
@@ -16,7 +28,7 @@ git remote add origin https://github.com/kumar-code5/DotnetAppCrud
 
 git push -f origin master//Its a force  push 
 
-==================For azure devops account ==================
+***********************For azure devops account***********************
 git remote -v
 git remote add origin https://github.com/kumar-code5/DotnetAppCrud
 git init
@@ -25,7 +37,7 @@ git add .
 git commit -m "first commit"
 git push -u origin master
 
-==================For git hub account ==================
+***********************For git hub account ***********************
 git remote -v
 git config --list
 git init
