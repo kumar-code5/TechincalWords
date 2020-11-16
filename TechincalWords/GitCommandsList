@@ -28,6 +28,8 @@ git remote add origin https://github.com/kumar-code5/DotnetAppCrud
 
 git push -f origin master//Its a force  push 
 
+//To increase the buffer size.
+git config http.postBuffer 524288000
 ***********************For azure devops account***********************
 git remote -v
 git remote add origin https://github.com/kumar-code5/DotnetAppCrud
