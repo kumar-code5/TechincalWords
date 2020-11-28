@@ -1,17 +1,29 @@
+
+COMMAND LIST
 *********************************************************************
-git remote -v
-git remote rm origin
-git remote add origin https://KumarCode5@dev.azure.com/KumarCode5/TestCodeReview/_git/CICDTesting-2
-git init
-git pull origin master
-git add .
-git commit -m "KP: First commit to push the Solution to azure repo."
-git push -u origin master
-//If any issues found try the below comamnd 
-git push -f origin master//Its a force  push 
+git branch -a
+git branch --all
+git branch --show-current
+git branch -column
+git branch --list
+git branch -all
+git log --pretty
+git reflog
+
+*********************************************************************
+Review work
+git log --oneline
+git log --graph
+git log --decorate
+*********************************************************************
+git stash, which makes a temporary, local save of your code
+git reset, which lets you tidy up your code before doing a commit
+git bisect, a function that allows you to hunt out bad commits
+git squash, which allows you to combine your commits
+git rebase, which allows for applying changes from one branch onto another
 *********************************************************************
 
-empty the remote origin
+Empty the remote origin
 git remote rm origin
 
 Shows the origin
@@ -30,22 +42,40 @@ git push -f origin master//Its a force  push
 
 //To increase the buffer size.
 git config http.postBuffer 524288000
+
+*********************************************************************
+git remote -v
+git remote rm origin
+git remote add origin https://KumarCode5@dev.azure.com/KumarCode5/TestCodeReview/_git/CICDTesting-2
+git init
+git pull origin master
+git add .
+git commit -m "KP: First commit to push the Solution to azure repo."
+git push -u origin master
+//If any issues found try the below comamnd 
+git push -f origin master//Its a force  push 
+*********************************************************************
+
 ***********************For azure devops account***********************
 git remote -v
+git remote rm origin
 git remote add origin https://github.com/kumar-code5/DotnetAppCrud
 git init
 git pull
 git add .
 git commit -m "first commit"
+git config http.postBuffer 524288000
 git push -u origin master
 
 ***********************For git hub account ***********************
 git remote -v
+git remote rm origin
 git config --list
 git init
 git add .
 git commit -m "KP: First commit adding the project"
 git remote add origin https://github.com/kumar-code5/EntityFrameworkPoc-SqlQuery
+git config http.postBuffer 524288000
 git push -u origin --all
 git push -u origin master
-
+*********************************************************************
