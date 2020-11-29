@@ -22,7 +22,15 @@ git bisect, a function that allows you to hunt out bad commits
 git squash, which allows you to combine your commits
 git rebase, which allows for applying changes from one branch onto another
 *********************************************************************
+Find difference in 2 branch.
+git diff Bug/HotFix-Turkey..Bug/HotFix
+git log Bug/HotFix-Turkey..Bug/HotFix
 
+git checkout Bug/Hofix29Nov
+git log --oneline --graph --all
+git rebase --abort
+$ git diff branch1..branch2
+*********************************************************************
 Empty the remote origin
 git remote rm origin
 
