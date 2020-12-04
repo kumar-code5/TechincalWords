@@ -42,3 +42,6 @@ That I mean is the ability to track work consistently across teams.
 In a nutshell 
 Staying aligned is important
 --==========================================================================================
+Simplifed integration
+Flexible development
+--==========================================================================================
