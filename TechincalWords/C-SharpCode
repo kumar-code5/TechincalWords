@@ -1,0 +1,5 @@
+*********************************C#*********************************
+var item = (Name: "eggplant", Price: 1.99m, perPackage: 3);
+var date = DateTime.Now;
+Console.WriteLine($"On {date}, the price of {item.Name} was {item.Price} per {item.perPackage} items.");
+**********************************************************************
