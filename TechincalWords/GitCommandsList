@@ -1,5 +1,5 @@
 
-COMMAND LIST
+Command List
 *********************************************************************
 git branch -a
 git branch --all
@@ -16,6 +16,7 @@ git log --oneline
 git log --graph
 git log --decorate
 *********************************************************************
+
 git stash, which makes a temporary, local save of your code
 git reset, which lets you tidy up your code before doing a commit
 git bisect, a function that allows you to hunt out bad commits
@@ -40,7 +41,7 @@ git remote -v
 Show git information
 git config --list
 
-Remove git on folder local machine
+Remove git on folder in local machine
 rm -rf .git
 
 Add the endpoint url where to fecth/push
