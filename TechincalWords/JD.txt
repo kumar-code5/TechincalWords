@@ -1,0 +1,58 @@
+Responsibilities
+
+Responsibilities
+Designing and developing high quality, resilient and easily maintainable software.
+Collaborating with cross-functional disciplines to drive design, development, testing and release of software that enhances customer experience.
+Striving for engineering excellence by helping evolve development guidelines, engineering practices, tools and processes.
+
+Qualifications
+
+Qualifications
+7+ years of industry experience
+Exceptional teamwork and values that foster a positive team culture.
+Strong and applied knowledge of object-oriented programming languages such as C#.
+Strong and applied knowledge of service infrastructure, frameworks, and technologies such as Azure Service Fabric, ASP.NET Core, .Net Core and Git.
+Knowledge of common services design patterns and application development best practices.
+Experience in working within an agile software development team, leveraging experimentation and prototyping, while continuing to measure and iterate.
+Proven ability to work through the full DevOps lifecycle from initial design to final product to live site support.
+Proven fundamental understanding of how to deliver end-to-end scenarios with security, reliability, and engineering quality in mind.
+Ability to learn and work effectively in a highly ambiguous, rapidly evolving environment.
+Knowledge of Azure technologies (Storage, Active Directory, Application Insights etc.) is a plus.
+Knowledge of frontend technologies such as React, HTML5, CSS3 is a plus.
+
+
+Leading a team of data developers in the data delivery team
+Reviewing data pipelines delivered by the data delivery team, ensuring alignment to objectives (expected results), coding and performance standards and support considerations
+Building and deploying high volume/complexity data pipelines into the production environment
+Coding and performance standards and ensuring consistency across data delivery
+Responsible for defining and refining the estimation framework for the development of data pipelines of varying complexity and suitable for multiple levels of coding proficiency
+Responsible for achieving delivery velocity and quality targets
+Responsible for providing estimates for the development of data pipelines of varying complexity and suitable for multiple levels of coding proficiency
+Ensuring cohesive engagement of the implementation function with a multidisciplinary team of Analysts, Solution Designers and Stream Leads to complete projects and smaller work requests to agreed scope, timeframes and budget
+
+
+Understand business issues and challenges, and forward plans and ensure the IT service integrity.
+Proactively identify the service improvement requirement and support delivery small enhancements.
+
+Developing Unit Testing framework and automating System Testing.
+Ensure effective engagement with stakeholders for the provision of system support.
+
+Provide strong technical leadership, raise the technical bar, maintain data and?results-driven?culture, nurture a team culture of high collaboration and trust.?
+Drive long-term architecture and detailed design for highly scalable distributed systems with simplicity and maintainability as core?tenets.?
+Collaborate across Azure to develop platforms that help simplify the management and monitoring of Edge devices at scale.?
+Communicate effectively and partner well with other disciplines of the project team to deliver high quality solutions from ideas to production code.?
+Write exemplary code working with large scale distributed systems?with?quality, simplicity, and maintainability as core tenets.?
+Mentor and develop engineers across all levels through sharing and learning.?
+Be a role model for?open, honest and inclusive approach to problem?solving.?
+
+
+
+Experience with continuous integration and continuous deployment
+Curiosity and willingness to question
+High enthusiasm, integrity, ingenuity, results-orientation, self-motivation, and resourcefulness in a fast-paced environment
+Experience developing and managing scalable cloud services
+Have a deep desire to work collaboratively, solve problems with groups, find win/win solutions and celebrate successes.
+Get excited by the challenge of hard technical problems.
+Solve problems by always leading with deep passion and empathy for customers.
+Understanding of data structures, algorithms and distributed systems
+Excellent communication and collaboration skills with proven technical leadership skills
