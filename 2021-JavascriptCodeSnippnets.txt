@@ -1,0 +1,673 @@
+ES5,ES6 +
+Let, Const
+*****************************************************************************
+Template keyword
+function print(firstName) {
+    console.log(`Hello ${firstName}`);
+  }
+  
+  print("Jenny");
+  
+  function createEmail(firstName, price) {
+    let shipping = 5.95;
+    console.log(`Hi ${firstName}! Thanks!
+        Total: $${price}
+        Shipping: $${shipping}
+        Grand Total: $${price + shipping}
+      `);
+  }
+  
+createEmail("Guy", 100);
+  
+*****************************************************************************
+Searcxh string in Javascript 
+
+const planet = "Earth";
+console.log(planet.search("h"));
+console.log(planet.blink("h"));
+console.log(planet.bold("h"));
+*****************************************************************************
+Symbols in javascript
+const id = Symbol();
+
+const courseInfo = {
+  title: "JavaScript",
+  topics: ["strings", "arrays", "objects"],
+  id: "js-course"
+};
+
+courseInfo[id] = 41284;
+console.log(courseInfo);
+*****************************************************************************
+Map: Key value pair
+
+let course = new Map();
+
+course.set("react", { description: "ui" });
+course.set("jest", { description: "testing" });
+
+// console.log(course);
+// console.log(course.react);
+// console.log(course.get("react"));
+
+let details = new Map([
+  [new Date(), "today"],
+  [2, { javascript: ["js", "node", "react"] }],
+  ["items", [1, 2]]
+]);
+
+// console.log(details.size);
+
+details.forEach(function (item) {
+  console.log(item);
+});
+
+*****************************************************************************
+SET: values should be unique 
+
+
+let books = new Set();
+books.add("Pride and Prejudice");
+books.add("War and Peace").add("Oliver Twist");
+books.add("Pride and Prejudice");
+
+console.log(books);
+console.log(books.size);
+
+books.delete("Oliver Twist");
+
+console.log(
+  "has Oliver Twist",
+  books.has("Oliver Twist")
+);
+*****************************************************************************
+Spread Operator
+let cats = ["Biscuit", "Jungle"];
+let dogs = ["Stella", "Camper"];
+
+let animals = [
+  "Smoky",
+  "Miro",
+  "Swimmy",
+  ...cats,
+  ...dogs
+];
+
+console.log(animals);
+*****************************************************************************
+destructuring-arrays
+let [first, , , , fifth] = [
+  "Spokane",
+  "Boston",
+  "Los Angeles",
+  "Seattle",
+  "Portland"
+];
+
+console.log(first);
+console.log(fifth);
+*****************************************************************************
+Searching an Array with includes
+
+let cities = [
+  "Spokane",
+  "Boston",
+  "Los Angeles",
+  "Seattle",
+  "Portland"
+];
+
+console.log(cities.includes("Boston"));
+console.log(cities.includes("Santa Barbara"));
+*****************************************************************************
+Enhancing Object literls
+function skier(name, sound) {
+  return {
+    name,
+    sound,
+    powderYell: function () {
+      let yell = this.sound.toUpperCase();
+      console.log(`${yell}! ${yell}!`);
+    }
+  };
+}
+
+skier("Sendy", "yeah").powderYell();
+
+
+*****************************************************************************
+Creating  Object with spread operator 
+const daytime = {
+  breakfast: "oatmeal",
+  lunch: "peanut butter and jelly"
+};
+
+const nighttime = "mac and cheese";
+
+const backpackingMeals = {
+  ...daytime,
+  nighttime
+};
+
+console.log(backpackingMeals);
+*****************************************************************************
+Destructure Objects
+
+const vacation = {
+  destination: "Chile",
+  travelers: 2,
+  activity: "skiing",
+  cost: "so much"
+};
+
+function marketing({ destination, activity }) {
+  return `Come to ${destination} and do some ${activity}`;
+}
+
+console.log(marketing(vacation));
+*****************************************************************************
+class
+
+class Vehicle {
+  constructor(description, wheels) {
+    this.description = description;
+    this.wheels = wheels;
+  }
+  describeYourself() {
+    console.log(
+      `I am a ${this.description} 
+        with ${this.wheels} wheels.`
+    );
+  }
+}
+
+let coolSkiVan = new Vehicle("cool ski van", 4);
+console.log(coolSkiVan);
+coolSkiVan.describeYourself();
+*****************************************************************************
+
+
+*****************************************************************************
+
+
+
+*****************************************************************************
+
+
+Javascript hoisting 
+Function decalartion vs Function expression 
+Callback function
+This keyword
+Primitive types vs Reference types
+
+
+API Testing endpoint
+developers.giphy
+https://api.giphy.com/v1/gifs/random?api_key=sY2tu2SQS8xQr1DSvxbNcNkBQuoIT595&tag=&rating=g
+
+Newapi 
+85fa14cf13ea4ed4b258460d33fc0d2f
+
+https://newsapi.org/v2/everything?q=tesla&from=2021-03-09&sortBy=publishedAt&apiKey=85fa14cf13ea4ed4b258460d33fc0d2f
+
+
+
+
+*****************************************************************************
+var Superheroes = [
+    "Batman",
+    "Ironman",
+    "Thor",
+    "Superman",
+    "SpiderMan",
+	"SpiderMan",
+    "Hulk",
+	"Captain-America",
+	"Avengers"
+];
+const map1 = Superheroes.map(x => console.log('Character names are:',hero));
+
+---Ways to get the data using the callback function---
+Superheroes.forEach(hero=>console.log('Character names are:',hero))
+Superheroes.forEach((hero)=>console.log('Character names are:',hero))
+Superheroes.forEach((hero, index)=>console.log('Character names are:',hero, index))
+Superheroes.forEach((hero, index)=>console.log(`Character names are Index:${index} -- Name: ${hero}`))
+Superheroes.forEach(function(){console.log(`I'm from callBack Func()`);});
+****************************************************************************************************************************
+
+//object literals
+//https://stackoverflow.com/questions/16626735/how-to-loop-through-an-array-containing-objects-and-access-their-properties
+
+
+let user = {
+  name: 'Kumar Naidu',
+  age: 30,
+  email: 'Kumar.Palani@Microsoft.com',
+  experience: '12+ Years @ .Net Technology',
+  location: 'Sydney',
+  blogs: ['tips and tricks Javascript', 'tips and tricks C#','10 things to make with Azure '],
+  Travelhistory: ['UK', 'Turkey','Europe','Australia','US'],
+  
+  login: function(){
+    console.log('the user logged in');
+  },
+  logout: function(){
+    console.log('the user logged out');
+  },
+  logBlogs: function(){
+    // access the blogs here
+	user.blogs.forEach((blog) => console.log(`Blog articles are :,${blog}`))
+  },
+   logPlacesTravelled: function(){
+   
+    // access the blogs here
+	// this.Travelhistory.forEach(Travel => console.log(` Places Travelled  are :,${Travel}`))
+	 console.log(this)
+  }
+};
+
+
+let user = {
+  name: 'Kumar Naidu',
+  age: 30,
+  email: 'Kumar.Palani@Microsoft.com',
+  experience: '12+ Years @ .Net Technology',
+  location: 'Sydney',
+  blogs: ['tips and tricks Javascript', 'tips and tricks C#','10 things to make with Azure '],
+  Travelhistory: ['UK', 'Turkey','Europe','Australia','US'],
+  
+  login: function(){
+    console.log('the user logged in');
+  },
+  logout: function(){
+    console.log('the user logged out');
+  },
+  logBlogs: function(){
+    // access the blogs here
+	user.blogs.forEach((blog) => console.log(`Blog articles are :,${blog}`))
+  },
+   logPlacesTravelled: ()=>{
+   //We cannnot use this keyword inside an arrow function and it points to global window object
+   //this.Travelhistory.forEach(Travel => console.log(` Places Travelled  are :,${Travel}`))
+   console.log(this)
+  }
+  
+};
+
+user.logPlacesTravelled();
+// Get blog details
+user.blogs.forEach((u) => console.log(`Blog articles are :,${u}`))
+
+
+console.log(user);
+user.forEach((e) => console.log(`User info :,${e}`))
+
+
+const user5=user.blogs;
+console.log(user5);
+user5.forEach((u) => console.log(`Blog articles are :,${u}`))
+
+//Add new value to objects
+console.log(user);
+console.log(user.age);
+user.age = 25;
+console.log(user.age);
+
+console.log(user['name']);
+user['name'] = 'Kumar Naidu';
+console.log(user['name']);
+console.log(typeof user);
+
+
+//Array of objects how to access it 
+let user = {
+  name: 'Kumar Naidu',
+  age: 30,
+  email: 'Kumar.Palani@Microsoft.com',
+  experience: '12+ Years @ .Net Technology',
+  blogs: [
+    {title: 'Tips and tricks in Javascript', likes: 30},
+    {title: '10 things to make Azure App services fast', likes: 50},
+	{title: 'Hidden beauty of VS code 2020', likes: 1230}
+  ],
+  login(){
+    console.log('the user logged in');
+  },
+  logout(){
+    console.log('the user logged out');
+  },
+  logBlogs(){
+    // access the blogs here
+    // console.log(this);
+    console.log('this user has written these blogs:');
+    this.blogs.forEach(blog => {
+      console.log(`${blog.title} has ${blog.likes} likes`);
+    })
+  }
+};
+
+//console.log(this);
+user.logBlogs();
+console.table(user);
+console.table(user.blogs);
+console.table(
+user.blogs.forEach(blog => {
+console.log(`${blog.title} has ${blog.likes} likes`);
+})
+);
+
+
+
+
+//loop-through-an-array-with-multiple-objects-and-list-certain-elements
+var contacts = [{
+  firstName: 'John',
+  lastName: 'Doe',
+  phone: '(512) 355-0453',
+  email: 'johndoe@email.com'
+}, {
+  firstName: 'Jane',
+  lastName: 'Doe',
+  phone: '(313) 641-2203',
+  email: 'janedoe@email.com'
+}, {
+  firstName: 'Suzie',
+  lastName: 'Smith',
+  phone: '(415) 604-4219',
+  email: 'suziesmith@email.com'
+}];
+
+var listContacts = function() {
+  return contacts.map(function(contact) {
+    return contact.firstName + " " + contact.lastName
+  })
+};
+
+console.log(listContacts());
+****************************************************************************************************************************
+// primitive values
+let scoreOne = 50;
+let scoreTwo = scoreOne;
+console.log(`scoreOne: ${scoreOne}`, `scoreTwo: ${scoreTwo}`);
+
+scoreOne = 100;
+console.log(`scoreOne: ${scoreOne}`, `scoreTwo: ${scoreTwo}`);
+
+// reference values
+userOne = { name: 'Kumar', age: 30 };
+userTwo = userOne;
+console.log(userOne, userTwo);
+
+userOne.name = 'Kumar Palani';
+console.log(userOne, userTwo);
+****************************************************************************************************************************
+//Check null || udenfined  || empty
+
+var  nextUrl=""
+if (typeof (nextUrl) !== 'undefined'&&  nextUrl!=null) 
+console.log('I am not null')
+else  
+console.log('I am null or else undefined')
+
+
+var  nextUrl;
+if (typeof (nextUrl) !== 'undefined'&&  nextUrl!=null) 
+console.log('I am not null')
+else  
+console.log('I am null or else undefined')
+
+var  nextUrl=null
+if (typeof (nextUrl) !== 'undefined'&&  nextUrl!=null) 
+console.log('I am not null')
+else  
+console.log('I am null or else undefined')
+****************************************************************************************************************************
+Testing User form Events
+
+const username='Kumarp';
+const usernamePattern=/^[a-zA-Z]{6,12}$/;
+if(usernamePattern.test(username))
+console.log('Passed');
+else
+console.log('Failed');
+
+in browser get the element id information.
+window.document.querySelector(".feedback")
+
+****************************************************************************************************************************
+Arrays  methods
+
+var onMenuList=['🍕','🍟','🍔','🥙','🥛','🍉','🍨','🥂','🍻','🍺','🍹','🥂','🍷','🥤']
+
+var Superheroes = [
+    "Batman",
+    "Batman",
+    "Ironman",
+    "Thor",
+    "Superman",
+    "SpiderMan",
+	"SpiderMan",
+    "Hunk"
+];
+
+//Filter
+var CarInfo= [
+	{ Rating: 1, CarBrand: 'Mercedes-Benz', Likes: 12321, premium:true},
+	{ Rating: 2, CarBrand: 'BMW', Likes: 111, premium:true},
+	{ Rating: 3, CarBrand: 'Ferrai', Likes: 231, premium:true},
+	{ Rating: 4, CarBrand: 'Bugatti', Likes: 121, premium:true},
+	{ Rating: 5, CarBrand: 'Maruthi', Likes: 121, premium:false},
+	{ Rating: 6, CarBrand: 'Hyuandi', Likes: 121, premium:false},
+	{ Rating: 7, CarBrand: 'Ka', Likes: 121, premium:false}
+];
+let premiumCars= CarInfo.filter(car =>  car.premium)
+
+let maxlikes = CarInfo.filter(car =>  car.Likes>10000);
+
+let getBuggati = CarInfo.filter(car => car.CarBrand==='Bugatti');
+
+let premiumCars = CarInfo.filter(car => {
+        return car.premium === true;
+})
+
+
+var MenuList= [
+	{ Name: 'Burger',     Price: 150},
+	{ Name: 'Pizza',      Price: 300},
+	{ Name: 'Pasta',      Price: 40},
+	{ Name: 'Softdrink',  Price: 20},
+	{ Name: 'Icecream',   Price: 234},
+	{ Name: 'fries',      Price: 30}
+];
+const saleProducts= MenuList.map(p=>{
+if(p.Price>50){
+return {name:p.Name,Price:p.Price/2};}
+else{
+return MenuList;
+}
+});
+console.log(saleProducts,MenuList);
+console.table(saleProducts,MenuList);
+
+//Reduce()
+var personScores = [
+{ name: "Kumar", Scores: 99},
+{ name: "Kian", Scores: 45},
+{ name: "manu", Scores: 70},
+{ name: "John", Scores: 89},
+{ name: "Peter", Scores: 70},
+{ name: "Frank", Scores: 65},
+{ name: "Kumar", Scores: 99},
+{ name: "Kian", Scores: 45},
+{ name: "manu", Scores: 70},
+{ name: "John", Scores: 89},
+{ name: "Peter", Scores: 70},
+{ name: "Frank", Scores: 65}
+];
+
+//example get score for kumar only.
+var totalScore = personScores.reduce((acc,curr) =>{
+ if(curr.name === "Kumar"){
+ acc+=curr.Scores
+ }
+  return acc;
+}, 0);
+
+//example get score for everyone.
+var totalScoreofTeam = personScores.reduce(function(acc,curr) {
+return  acc+curr.Scores;
+}, 0);
+****************************************************************************************************************************
+
+
+
+console.log('Func()1')
+console.log('Func()2')
+console.log('Func()3')
+console.log('Func()4')
+console.log('Func()5')
+
+function callback()
+{
+setTimeout(function() {
+  console.log('This is a call back func()');
+}, 5000);
+}
+
+
+console.log('Func()1')
+console.log('Func()2')
+console.log(callback)
+console.log('Func()3')
+setTimeout(function() {
+  console.log('This is a call back func()');
+}, 5000);
+console.log('Func()4')
+console.log('Func()5')
+****************************************************************************************************************************
+//XML http request 
+
+fetch('https://jsonplaceholder.typicode.com/todos/1')
+.then(response => response.json())
+.then(json => console.log(json))
+  
+  
+const request = new XMLHttpRequest();
+request.addEventListener('readystatechange' ,() => {
+if(request.readState === 4)
+{
+console.log(request,request.readState);
+console.log(request,request.resaText);
+}
+});
+
+request.open('GET', 'https://jsonplaceholder.typicode.com/todos/');
+request.send();
+
+var xhr = new XMLHttpRequest();
+xhr.open("GET", "https://jsonplaceholder.typicode.com/todos/", true);
+xhr.onreadystatechange = function() {
+  if (xhr.readyState == 4) {
+    // JSON.parse does not evaluate the attacker's scripts.
+    var resp = JSON.parse(xhr.responseText);
+	console.log(JSON.stringify(xhr.responseText));
+  }
+}
+xhr.send();
+**********************
+const getTodos=(callback)=>{
+var xhr = new XMLHttpRequest();
+xhr.open("GET", "https://jsonplaceholder.typicode.com/todoss/1", true);
+xhr.onreadystatechange = function() {
+  if (xhr.readyState == 4 && xhr.status===200) {
+    // JSON.parse does not evaluate the attacker's scripts.
+    //var resp = JSON.parse(xhr.responseText);
+	//console.log(JSON.stringify(xhr.responseText));
+	callback(undefined,xhr.responseText);
+  }
+  else if (xhr.readyState == 4) {
+       //console.log('could not fecth teh data')}
+	   callback('couls not fecth the data',undefined);
+}
+xhr.send();
+};
+
+getTodos((err,data)=>{
+console.log('callback fired');
+if(err){
+console.log(err)
+}
+else{
+console.log(data)
+}
+}
+
+
+****************************************************************************************************************************
+//call back
+
+console.log(1)
+console.log(2)
+console.log(3)
+setTimeout( function(){
+    console.log(1);
+}, 1000 );
+  console.log(4)
+  console.log(5)
+
+//Example:1
+const getTodos = (subject,callback) => {
+    var xhr = new XMLHttpRequest();
+    subject='JavaScriptES6+2021'
+    xhr.addEventListener ('readystatechange',() => { 
+      if(xhr.readyState == 4 && xhr.status===200) {
+        callback(undefined,xhr.responseText);
+      }else if (xhr.readyState == 4) {
+           callback(`could not fecth the data ${subject}`,undefined);
+    }
+});
+    xhr.open("GET", "https://jsonplaceholder.typicode.com/todoss/1", true);
+    xhr.send();
+};
+    
+    getTodos('JavaScriptES6',(err,data)=>{
+    console.log('callback fired');
+    if(err){
+    console.log(err)}
+    else{console.log(data)}
+    });
+
+//Example:2
+const getTodos = (subject,callback) => {
+    var xhr = new XMLHttpRequest();
+    subject='JavaScriptES6+2021'
+    xhr.addEventListener ('readystatechange',() => { 
+      if(xhr.readyState == 4 && xhr.status===200) {
+        callback(undefined,xhr.responseText);
+      }else if (xhr.readyState == 4) {
+           callback(`could not fecth the data ${subject}`,undefined);
+    }
+});
+    xhr.open("GET", "https://jsonplaceholder.typicode.com/todosss/1", true);
+    xhr.send();
+};
+    
+ getTodos('JavaScriptES6',(err,data)=>{
+ console.log('callback fired');
+if(err){
+ console.log(err)}
+else{console.log(data)}
+});
+
+//Example:3
+const doHomework=(subject, callback)=> {
+ setTimeout( function(){
+    console.log(1);
+  }, 1000 );
+  console.log(`Starting my ${subject} homework.`);
+   callback();
+};
+
+doHomework('math', function() {
+  console.log('Finished my homework');
+});

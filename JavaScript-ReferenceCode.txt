@@ -1,0 +1,2528 @@
+﻿************************************************************************************************
+01. JavaScript Prototype
+02. JavaScript(ES6) Class
+03. IIFE IIFE (Immediately Invoked Function Expression) is a JavaScript function that runs as soon as it is defined.
+04. Understanding Scope:
+05. JavaScript Closures
+06. The Module Pattern
+07. Hoisting:
+08. Currying:
+09.The apply, call, and bind methods:
+10.Polymorphism in JavaScript:
+11.Asynchronous Js 
+12.Callback Function
+13.Understand Promises
+14.Async & Await
+Promises
+Callback
+Closures
+Defer
+Spread and destructuring 
+Aysnc/Await
+
+Array Builtin functions()
+Set
+Map
+Reduce
+Call back 
+************************************************************************************************
+Json Data used for example :
+var SportsWarehouse=
+[
+  {category: "Sporting Goods", price: "$49.99", stocked: true, name: "Football"},
+  {category: "Sporting Goods", price: "$9.99",  stocked: true, name: "Baseball"},
+  {category: "Sporting Goods", price: "$29.99", stocked: false, name: "Basketball"},
+  {category: "Electronics",    price: "$199.99",    stocked: true, name: "Apple watch"},
+  {category: "Electronics",    price: "$399.99",   stocked: false, name: "Apple iPhone"},
+  {category: "Electronics",    price: "$899.99",   stocked: true, name: "Apple Mac"}
+];
+console.table(SportsWarehouse);
+console.log(SportsWarehouse);
+
+************************************************************************************************
+// Spread Operator and Destructuring
+function addNumbers(a, b, c) {
+  return a + b + c;
+}
+ 
+let sampleArr = [1, 2, 3,89];
+console.log(addNumbers(...sampleArr)); //6
+
+function printName({firstName, lastName}) {
+  console.log(`Full Name : ${firstName} ${lastName}`);
+};
+ 
+let personObj = {
+  firstName: 'John',  
+  lastName: 'Doe',
+  lastName: 'Hague'
+};
+ 
+printName(personObj); //Full Name : John Hague
+Output:Full Name : John Hague
+
+************************************************************************************************
+Async/Await functions
+
+async function firstAsync() {
+  return 5;
+}
+firstAsync().then(alert); // 5
+
+async function firstAsync() {
+let promise = new Promise((res, rej) => {
+setTimeout(() => res("Now it's done!"), 1000)
+});
+// wait until the promise returns us a value
+let result = await promise; 
+// "Now it's done!"
+alert(result); 
+}
+
+firstAsync();
+************************************************************************************************
+Things to remember when using Async Await
+We can’t use the await keyword inside of regular functions.
+
+async function sequence() {
+await Promise.all([promise1(), promise2()]);  
+return "done!";
+}
+************************************************************************************************
+Difference Between stringify vs parse
+
+//JSON.parse() and JSON.stringify()
+JSON.parse() and JSON.stringify()
+
+const guestInfo = {
+  name: 'John',
+  age: 25,
+  favoriteFood: 'Steak'
+};
+console.log(guestInfo);
+console.log(JSON.parse(guestInfo));
+console.log(JSON.stringify(guestInfo);
+const outputStringify = JSON.stringify(guestInfo);
+console.log(outputStringify);
+// {"name":"Skip","age":2,"favoriteFood":"Steak"}
+console.log(JSON.parse(outputStringify));
+//name: "John", age: 25, favoriteFood: "Steak"}
+
+console.log(JSON.parse(guestInfo));
+// Object {name:"Skip",age:2,favoriteFood:"Steak"}
+
+
+JSON.parse() can take an second argument for a reviver function that can transform the object values before they are returned.
+Here the object’s values are uppercased in the returned object of the parse method:
+
+const user = {
+  name: 'John',
+  email: 'john@awesome.com',
+  plan: 'Pro'
+};
+
+const userStr = JSON.stringify(user);
+JSON.parse(userStr, (key, value) => {
+  if (typeof value === 'string') {
+    return value.toUpperCase();
+  }
+  return value;
+});
+{name: "JOHN", email: "JOHN@AWESOME.COM", plan: "PRO"}
+
+JSON.stringify()
+
+Example:
+const user = {
+  id: 229,
+  name: 'John',
+  email: 'john@awesome.com'
+};
+
+function replacer(key, value) {
+  console.log(typeof value);
+  if (key === 'email') {
+    return undefined;
+  }
+  return value;
+}
+
+const userStr = JSON.stringify(user, replacer);
+// "{"id":229,"name":"John"}"
+
+************************************************************************************************
+https://www.linkedin.com/in/kumarnaidu23/
+
+async function fetchUserDetailsWithStats() {
+  i = 0;
+  for (name of ["Kumar-code5","nkgokul", "BrendanEich", "gaearon"]) {
+    i++;
+    console.log("Starting API call " + i + " at ");
+    userDetails = await fetch("https://api.github.com/users/" + name);
+    userDetailsJSON = await userDetails.json();
+    console.log("Finished API call " + i + "at ");
+    console.log("userDetailsJSON", userDetailsJSON);
+	console.table(userDetailsJSON)
+  }
+}
+fetchUserDetailsWithStats();
+
+************************************************************************************************
+Convert datatype from int  to string type
+const age=20;
+const agestring= age+ "";
+console.log(typeof age);
+console.log(typeof agestring);
+console.log(age);
+console.log(agestring);
+************************************************
+Specify an empty array with  5 elements in it.
+const users=Array(5).fill("");
+console.log(users);
+************************************************************************************************
+Get Unique value from arrays 
+var Superheroes = [
+    "Batman",
+    "Batman",
+    "Ironman",
+    "Thor",
+    "Superman",
+    "SpiderMan",
+	"SpiderMan",
+    "Hunk"
+];
+const uniqueValues=Array.from(new Set(Superheroes))
+console.log(uniqueValues);
+
+************************************************************************************************
+ // Dynamic Objects  and display the info of it.
+
+const dynamicProp= "carType"
+var cars = {
+car: "Mercedes A 160", 
+year: 2006,
+available: true, 
+comesInBlack: "yes",
+[dynamicProp]:"Sportscar"
+};
+console.log(cars);
+
+[object Object]: {available: true, car: "Mercedes A 160", carType: "Sportscar", comesInBlack: "yes", year: 2006}
+
+
+let userDetails = {
+  name: 'Kumar Naidu',
+  age: 30,
+  email: 'Kumar.Palani@Microsoft.com',
+  experience: '12+ Years @ .Net Technology',
+  location: 'Sydney',
+  blogs: ['tips and tricks Javascript', 'tips and tricks C#','10 things to make with Azure '],
+  Travelhistory: ['UK', 'Turkey','Europe','Australia','US'],
+  
+  login: function(){
+    console.log('the user logged in');
+  },
+  logout: function(){
+    console.log('the user logged out');
+  }
+}
+console.log(userDetails);
+userDetails.Dishes=['🍕','🍟','🍔','🥙','🥛','🍉']
+console.log(userDetails);
+
+************************************************************************************************
+Arrays few method commanly used and its purpose
+var Superheroes = [
+    "Batman",
+    "Batman",
+    "Ironman",
+    "Thor",
+    "Superman",
+    "SpiderMan",
+	"SpiderMan",
+    "Hunk"
+];
+Superheroes.length=3
+console.log(Superheroes);
+
+var onMenuList=['🍕','🍟','🍔','🥙','🥛','🍉','🍨','🥂','🍻','🍺','🍹','🥂','🍷','🥤']
+console.log(onMenuList)
+
+var Dishes=['🍺','🍕','🍟','🍔','🥙','🥛','🍉','🍕','🍉','🍉','🍺']
+console.log(Dishes);
+const uniqueDishes=Array.from(new Set(Dishes))
+console.log(uniqueDishes);
+
+console.log(Dishes);
+Dishes.length=3
+console.log(Dishes);
+
+Use of slice operator where you can get last 3 elements in an arrays
+var Superheroes = [
+    "Batman",
+    "Batman",
+    "Ironman",
+    "Thor",
+    "Superman",
+    "SpiderMan",
+	"SpiderMan",
+    "Hunk"
+];
+console.log(Superheroes.Slice(-3));
+************************************************************************************************
+Convert Array to objects
+Convert Objects into Arrays
+
+const CarInfoObject = 
+{
+car: "Mercedes A 160", 
+year: 2006,
+available: true, 
+comesInBlack: "yes"
+}
+const usersObject=Object.values(CarInfoObject);
+console.log(usersObject);
+
+[object Array]: 
+["Mercedes A 160", 2006, true, "yes"]
+0: "Mercedes A 160"
+1: 2006
+2: true
+3: "yes"
+length: 4
+
+const CarInfoObject = 
+{car: "Mercedes A 160", 
+year: 2006,
+available: true, 
+comesInBlack: "yes"}
+const usersObject=Object.keys(CarInfoObject);
+console.log(usersObject);
+
+
+
+Object.getOwnPropertyDescriptor
+
+************************************************************************************************
+Object.create()
+Object.keys()
+Object.values()
+Object.entries() 
+Object.assign()
+Object.freeze()
+Object.seal()
+************************************************************************************************
+Arrow functions are handy for one-liners. They come in two flavors:
+Without curly braces: (...args) => expression – the right side is an expression: the function evaluates it and returns the result.
+With curly braces: (...args) => { body } – brackets allow us to write multiple statements inside the function, but we need an explicit return to return something.
+
+
+https://levelup.gitconnected.com/9-tricks-for-kickass-javascript-developers-in-2019-eb01dd3def2a
+
+async function getData() {
+    const result = await fetch('https://dube.io/service/ping')
+    const data = result.data
+    console.log('data', data)
+    
+    return data
+}
+getData();
+
+// Ternary operator
+const lang = 'German'
+console.log(lang === 'German' ? 'Hallo' : 'Hello') 
+
+Truthy & falsy values
+if(myBool === true) {
+  console.log(...)
+}
+// OR
+if(myString.length > 0) {
+  console.log(...)
+}
+// OR
+if(isNaN(myNumber)) {
+  console.log(...)
+}
+
+if(myBool) {
+  console.log(...)
+}
+// OR
+if(myString) {
+  console.log(...)
+}
+// OR
+if(!myNumber) {
+  console.log(...)
+}
+
+
+
+
+A Few Good Principles of Debugging
+* You have to first understand what your code should be doing, determine where issues are and start to debug to verify your assumptions.
+* Once you figured out the source of the failure, focus on fixing the cause of the issue.
+* When you test your assumptions you’ll breakpoints and console logs. So don’t forget to discard those after you finish debugging.
+* And obviously do not debug in production!
+
+Definations with exmaple 
+
+
+Online tools for Javascript to run the code
+https://codepen.io/
+
+Json  data webapi url
+https://jsonplaceholder.typicode.com/
+https://cran.r-project.org/web/packages/jsonlite/vignettes/json-apis.html
+
+https://devinduct.com/blogpost/26/8-useful-javascript-tricks
+https://codetower.github.io/es6-features/
+https://javascript.info/destructuring-assignment
+
+fetch('https://jsonplaceholder.typicode.com/todos/1')
+ 
+.then(response => response.json())  
+.then(json => console.log(json))
+
+{userId: 1, id: 1, title: "delectus aut autem", completed: false}
+
+
+Javscript versions
+ES5  
+ES5  
+ES6
+ES7
+
+// ES6 Features
+Function Declaration versus Function Expression
+Arrow Functions
+Classes
+Enhanced Object Literals
+String interpolation
+Destructuring
+Default
+Spread
+Spread + Object Literals
+Rest
+Let
+Const
+For..of
+Unicode
+Modules & Module Loaders
+Set
+WeakSet
+Map
+WeakMap
+Proxies
+Symbols
+Inheritable Built-ins
+New Library
+Binary and Octal
+Promises
+Reflect
+Tail Call Optimization 
+
+
+// spread operator for copying 
+Array operatore
+Map
+Find
+Filter
+Find
+Some
+Splice
+...Spread operator
+Slice
+shift(); 
+Unshift
+Pop()
+Push()
+Find an property exists in array of objects 
+let, var, const keyword in JavaScript (ES6)
+Hoisting Functions
+Hoisting classes
+Closuresures
+Callbacks
+Promise
+Currying
+Why Useful Currying?
+Aync and await
+Localstaorgae
+call,apply and bind
+Mainly It helps to create a higher-order function. It is extremely helpful in event handling.
+For..of
+//********************************************************************************
+
+
+
+How to empty an array in JavaScript?
+let sampleArray = ['foo', 'bar', 'zeta'];
+sampleArray.length = 0; // sampleArray becomes []
+
+
+//********************************************************************************
+Logging to the Console
+console.table([
+  {animal: 'cayman', color: 'green' },
+  {animal: 'crocodilian', color: 'yellow-green' }
+]);
+
+console.log is the most common way to check the values of variables at various points in your app’s execution. 
+But there are a few more ways to display those values in more convenient ways.
+
+Sometimes we have a complex object or array that we want to inspect.
+We can still use console.log(array); but the console.table(array) will display the object as a nice table:
+
+
+//********************************************************************************
+
+example for  :Currying
+var add =   function (a){
+	console.log('From Func1');
+                 return function(b){
+					 console.log('From Func2');
+                       return function(c){
+						   console.log('From Func3');
+                              return a+b+c;
+                              }        
+                        }
+                  }
+console.log(add(2)(3)(4)); //output 9
+
+https://medium.com/@madasamy/15-javascript-concepts-that-every-nodejs-programmer-must-to-know-6894f5157cb7
+***************************************************
+The apply, call, and bind methods:
+
+var obj={
+   num : 2
+}
+var add = function(num2,num3,num4){
+   return this.num + num2 + num3 + num4;
+}
+var arr=[3,4,5];
+//Call method 
+console.log(add.call(obj,3,4,5));  //Output : 14
+
+//Apply method
+console.log(add.apply(obj,arr));   //Output : 14
+
+//bind Method
+var bound = add.bind(obj);
+console.log(bound(3,4,5));         //output : 14 
+
+
+Apply vs. Call vs. Bind Examples
+Call invokes the function and allows you to pass in arguments one by one.
+Apply invokes the function and allows you to pass in arguments as an array.
+Bind returns a new function, allowing you to pass in a this array and any number of arguments.
+
+Call
+
+var person1 = {firstName: 'Kumar', lastName: 'Palani'};
+var person2 = {firstName: 'Kumar', lastName: 'Naidu'};
+
+function say(greeting,Msg2) {
+    console.log(greeting + ' ' + this.firstName + ' ' + this.lastName +' ' +Msg2);
+}
+
+say.call(person1, 'Hello','I am Baagalore'); // Hello Jon Kuperman
+say.call(person2, 'Hello','Sydney'); // Hello Kelly King
+
+Apply
+
+var person1 = {firstName: 'Kumar', lastName: 'Palani'};
+var person2 = {firstName: 'Kumar', lastName: 'Naidu'};
+
+function say(greeting,Msg2) {
+    console.log(greeting + ' ' + this.firstName + ' ' + this.lastName +' ' +Msg2);
+}
+
+say.apply(person1, ['Hello','I am Baagalore']); // Hello Jon Kuperman
+say.apply(person2, ['Hello','I am Sydney']); // Hello Kelly King
+
+Bind
+
+var person1 = {firstName: 'Jon', lastName: 'Kuperman'};
+var person2 = {firstName: 'Kelly', lastName: 'King'};
+
+function say() {
+    console.log('Hello ' + this.firstName + ' ' + this.lastName);
+}
+
+var sayHelloJon = say.bind(person1);
+var sayHelloKelly = say.bind(person2);
+
+sayHelloJon(); // Hello Jon Kuperman
+sayHelloKelly(); // Hello Kelly King
+
+
+
+https://medium.com/poka-techblog/simplify-your-javascript-use-map-reduce-and-filter-bd02c593cc2d
+***************************************************
+In JavaScript Asynchronous pattern handled in various versions,
+ES5 -> Callback
+ES6 -> Promise
+ES7 -> async & await
+
+
+Need to study 
+https://javascript.info/destructuring-assignment
+“Destructuring” does not mean “destructive”.
+
+Rest Operatoro
+function f (x, y, ...a) {
+    return (x + y) * a.length
+}
+f(1, 2, "hello", true, 7) === 9
+
+
+$http and $resource services.
+
+***************************************************
+How to call an api and see data in chrome browser..
+fetch('http://localhost:1701/api/entries/')
+  .then(res => res.json())
+  .then(console.log)
+
+***************************************************
+Boost your JavaScript Debugging Skills With These Console Tricks
+https://medium.com/better-programming/boost-your-javascript-debugging-skills-with-these-console-tricks-ab984c70298a
+https://www.digitalocean.com/community/tutorials/how-to-define-functions-in-javascript#conclusion
+
+Array destructuring
+Destructuring simply implies breaking down a complex structure into simpler parts.
+
+// we have an array with the name and surname
+let arr = ["Ilya", "Kantor"]
+
+// destructuring assignment
+// sets firstName = arr[0]
+// and surname = arr[1]
+let [firstName, surname] = arr;
+
+alert(firstName); // Ilya
+alert(surname);  // Kantor
+
+
+const student = {
+    name: 'John Doe',
+    age: 16,
+    scores: {
+        maths: 74,
+        english: 63,
+        science: 85
+    }
+};
+
+function displaySummary(student) {
+    console.log('Hello, ' + student.name);
+    console.log('Your Maths score is ' + (student.scores.maths || 0));
+    console.log('Your English score is ' + (student.scores.english || 0));
+    console.log('Your Science score is ' + (student.scores.science || 0));
+}
+
+displaySummary(student);
+=
+
+function displaySummary({ name, scores: { maths = 0, english = 0, science = 0 } }) {
+    console.log('Hello, ' + name);
+    console.log('Your Maths score is ' + maths);
+    console.log('Your English score is ' + english);
+    console.log('Your Science score is ' + science);
+}
+
+const obj = { first: 'Jane', last: 'Doe' };
+const {first: f, last: l} = obj;
+    // f = 'Jane'; l = 'Doe'
+
+// {prop} is short for {prop: prop}
+const {first, last} = obj;
+    // first = 'Jane'; last = 'Doe'
+	
+	
+****************************************
+Overview: different ways of declaring functions
+
+function A(){};             // function declaration
+var B = function(){};       // function expression
+var C = (function(){});     // function expression with grouping operators
+var D = function foo(){};   // named function expression
+var E = (function(){        // IIFE that returns a function
+  return function(){}
+})();
+var F = new Function();     // Function constructor
+var G = new function(){};   // special case: object constructor
+var H = x => x * 2;         // ES6 arrow function
+
+
+<!DOCTYPE html>
+<html>
+<body>
+<h2>JavaScript Object Constructors</h2>
+<p id="demo"></p>
+<script>
+
+// Constructor function for Person objects
+function Person(first, last, age, eye) {
+  this.firstName = first;
+  this.lastName = last;
+  this.age = age;
+  this.eyeColor = eye;
+}
+// Create two Person objects
+var myFather = new Person("John", "Doe", 50, "blue");
+var myMother = new Person("Sally", "Rally", 48, "green");
+
+// Display age
+document.getElementById("demo").innerHTML =
+"My father is " + myFather.age + ". My mother is " + myMother.age + "."; 
+</script>
+</body>
+</html>
+
+
+function A(){
+  console.log('foo');
+};
+A();
+
+A();
+function A(){
+  console.log('foo');
+};
+
+var A = function(){};
+var B = function(){};
+var C = function(){};
+
+
+// this works
+var B = function(){};
+B();
+
+// this doesn't work
+B2();  // TypeError (B2 is undefined)
+var B2 = function(){};
+'
+
+Normal function declaration
+
+function name() {
+	console.log('This is a normal function.');
+}
+
+var anonymous = function() {
+	console.log('This is an anonymous function.');
+}
+
+Self invoking function
+
+(function(){
+	console.log(Math.PI);
+})();
+
+(function(x){
+	console.log(x);
+})("Hello, World!");
+
+(function(){
+	console.log('This is a self-executing anonymous function.');
+})();
+
+Anonymous Functions as Callbacks
+
+setTimeout(function() {
+  console.log('This message is printed after 5 second.');
+}, 5000);
+9
+
+Function Expressions
+// Assign add function to sum constant
+const sum = function add(x, y) {
+    return x + y;
+}
+
+// Invoke function to find the sum
+sum(20, 5);
+
+// Assign function to sum constant
+const sum = function(x, y) {
+    return x + y;
+}
+
+// Invoke function to find the sum
+sum(100, 3);
+
+
+Arrow Functions
+// Define multiply function
+const multiply = (x, y) => {
+    return x * y;
+}
+// Invoke function to find product
+multiply(30, 4);
+****************************************
+Call back function
+
+function first(){
+  // Simulate a code delay
+  setTimeout( function(){
+    console.log(1);
+  }, 500 );
+}
+function second(){
+  console.log(2);
+}
+first();
+second();
+
+
+
+function doHomework(subject, callback) {
+ setTimeout( function(){
+    console.log(1);
+  }, 500 );
+  console.log(`Starting my ${subject} homework.`);
+ 
+  callback();
+}
+
+doHomework('math', function() {
+  console.log('Finished my homework');
+});
+
+
+****************************************
+The console object provides access to the browser's debugging console
+
+function sayHello(name) {
+  console.log(name)
+}
+sayHello('kumar')
+Output:kumar
+****************************************
+CONSOLE.COUNT
+
+function sayHello(name) {
+  console.count()
+  console.log(name)
+}
+sayHello("Indrek")
+sayHello("William")
+sayHello("Kelly")
+
+function sayHello(name) {
+  console.count(name)
+}
+****************************************
+function sayHello(name) {
+  console.count(name)
+}
+sayHello("Indrek")
+sayHello("William")
+sayHello("Kelly")
+sayHello("Indrek")
+VM553:2 Indrek: 1
+VM553:2 William: 1
+VM553:2 Kelly: 1
+VM553:2 Indrek: 2
+****************************************
+function sayHello(name) {
+  if(!name) 
+    console.warn("No name Param given")
+	else
+   console.info("Name Param given")
+}
+
+sayHello()
+
+****************************************
+Function sayHello(name) {
+  if(!name) 
+    console.warn("No name Param given")
+	else
+   console.info("Name Param given")
+}
+
+sayHello()
+No name Param given
+
+Function sayHello(name) {
+  if(!name) 
+    console.warn("No name Param given")
+	else
+   console.info("Name Param given")
+}
+
+sayHello('kumar')
+Name Param given
+
+****************************************
+const Names = ["Kumar", "Naidu", "Palani"]
+console.table(Names)
+
+Display the data in table format 
+****************************************
+objects instead
+const pets = {
+  name: "Simon",
+  type: "cat"
+};
+
+console.table(pets);
+****************************************
+
+var Customer= [
+    
+   { Name:'Kumar',  age: 43,Address:'Melbourne' },
+ 
+   { Name:'Palani', age: 13, Address:'Melbourne' },
+ 
+   { Name:'Naidu',  age: 18, Address:'Melbourne' }
+
+];
+
+console.table(Customer);
+console.dir(Customer);
+****************************************
+let products = [
+  {
+    name: "chair",
+    inventory: 5,
+    unit_price: 45.99
+  },
+  {
+    name: "table",
+    inventory: 10,
+    unit_price: 123.75
+  },
+  {
+    name: "sofa",
+    inventory: 2,
+    unit_price: 399.50
+  }
+];
+function listProducts(prods) {
+  let product_names = [];
+  for (let i=0; i<prods.length; i+=1) {
+   product_names.push(prods[i].name);
+  }
+  return product_names;
+}
+console.log(listProducts(products));
+
+function totalValue(prods) {
+  let inventory_value = 0;
+  for (let i=0; i<prods.length; i+=1) {
+    inventory_value += prods[i].inventory * prods[i].unit_price;
+  }
+  return inventory_value;
+}
+console.log(totalValue(products));
+****************************************
+
+thisThing1=1;
+if (thisThing1) 
+{
+debugger;
+console.debug('Im in DEBUG mode');
+}
+else
+console.info('Im in INFO mode');
+****************************************
+Benchmark loops using console.time() and console.timeEnd()
+console.time('Timer1');
+ 
+var items = [];
+ 
+for(var i = 0; i < 25; i++){
+   items.push({index: i+':: Hello kumar'});
+}
+console.table(items);
+console.timeEnd('Timer1')
+****************************************
+
+Working with Arrays
+
+var data = [
+      {"label" : "1", "value" : 12},
+      {"label" : "1", "value" : 12},
+      {"label" : "1", "value" : 12},
+    ];
+    
+data = [...data, {"label" : "2", "value" : 14}] 
+console.log(data);
+
+
+Loop over an Array
+var fruits = ['Apple', 'Banana'];
+fruits.forEach(function(item, index, array) {
+  console.log(item, index);
+});
+
+var TargetInfo= [
+                { TargetId: 1, TargetSystemName: "GAA"  },
+                { TargetId: 2, TargetSystemName: "BOFC" },
+                { TargetId: 3, TargetSystemName: "FUN"   },
+                { TargetId: 4, TargetSystemName: "BW"    }
+               ];
+TargetInfo.forEach(function(item, index, array) {
+  console.log(item, index);
+})
+
+
+
+var CarInfo= [
+                { Rating: 1, CarBrand: "Mercedes-Benz" , Likes: 12321},
+                { Rating: 2, CarBrand: "BMW", Likes: 111},
+                { Rating: 3, CarBrand: "Ferrai" , Likes: 231},
+                { Rating: 4, CarBrand: "Bugatti", Likes: 121}
+              ];
+CarInfo.forEach(function(item, index, array) {
+  console.log(item, index);
+  //console.log(item);
+  console.log(item.CarBrand+" :: "+item.Rating);
+})
+
+
+*************************************************
+--Approach :1
+
+var CarInfo= [
+                { Rating: 1, CarBrand: "Mercedes-Benz" , Likes: 12321},
+                { Rating: 2, CarBrand: "BMW", Likes: 7843},
+                { Rating: 3, CarBrand: "Ferrai" , Likes: 231},
+                { Rating: 4, CarBrand: "Bugatti", Likes: 643452}
+              ];
+  
+
+CarInfo.forEach(e => {
+   e["YearEndOffers"] = true;
+   console.log(e);
+});
+console.table(CarInfo);
+
+--Approach :2
+var CarInfo= [
+                { Rating: 1, CarBrand: "Mercedes-Benz" , Likes: 12321},
+                { Rating: 2, CarBrand: "BMW", Likes: 7843},
+                { Rating: 3, CarBrand: "Ferrai" , Likes: 231},
+                { Rating: 4, CarBrand: "Bugatti", Likes: 643452}
+              ];
+CarInfo.forEach(element => {
+   element["Selected"] = true;
+  console.log(element);
+});
+
+for (let elem in obj) {  
+  console.log( obj[elem] )
+}
+var TargetInfo= [
+                { TargetId: 1, TargetSystemName: "GAA"  },
+                { TargetId: 2, TargetSystemName: "BOFC" },
+                { TargetId: 3, TargetSystemName: "FUN"   },
+                { TargetId: 4, TargetSystemName: "BW"    }
+               ];
+TargetInfo.forEach(function(item, index, array) {
+  console.log(item, index);
+})
+console.log('**************');
+console.log(TargetInfo.length);
+console.log('**************');
+console.log('Loop over an Array');
+TargetInfo.forEach(function(item, index, array) {
+  console.log(item, index);
+});
+console.log('**************');
+console.log('Add to the end of an Array');
+TargetInfo.push({TargetId: 5, TargetSystemName: "BFC"});
+TargetInfo.forEach(function(item, index, array) {
+  console.log(item, index);
+});
+
+console.log('**************');
+console.log('Remove from the end of an Array');
+var last = TargetInfo.pop();
+TargetInfo.forEach(function(item, index, array) {
+  console.log(item, index);
+});
+
+
+console.log('**************');
+console.log('Remove from the front of an Array');
+var last = TargetInfo.shift();
+TargetInfo.forEach(function(item, index, array) {
+  console.log(item, index);
+});
+
+
+console.log('**************');
+console.log('Add to the front of an Array');
+var last = TargetInfo.shift();
+TargetInfo.forEach(function(item, index, array) {
+  console.log(item, index);
+});
+console.log('**************');
+console.log('Get the index of the object inside an array, matching a condition');
+a = [
+  {prop1:"abc",prop2:"qwe"},
+  {prop1:"bnmb",prop2:"yutu"},
+  {prop1:"zxvz",prop2:"qwrq"}];
+   TargetInfo= [
+                { TargetId: 1, TargetSystemName: "GAA"  },
+                { TargetId: 2, TargetSystemName: "BOFC" },
+                { TargetId: 3, TargetSystemName: "FUN"   },
+                { TargetId: 4, TargetSystemName: "BW"    }
+               ];
+    
+var index = TargetInfo.findIndex(x => x.TargetSystemName ==="FUN");
+console.log(index);
+console.log('**************');
+console.log('Remove an item by index position');
+var removedItem = TargetInfo.splice(1, 1);
+
+*************************************************
+...theArgs 
+
+function fun1(...theArgs) {
+  console.log(theArgs.length);
+}
+
+fun1();  // 0
+fun1(5); // 1
+fun1(5, 6, 7); // 3
+
+function sortRestArgs(...theArgs) {
+  var sortedArgs = theArgs.sort();
+  return sortedArgs;
+}
+
+console.log(sortRestArgs(5, 3, 7, 1)); // 1, 3, 5, 7
+
+
+function multiply(multiplier, ...theArgs) {
+  return theArgs.map(function(element) {
+    return multiplier * element;
+  });
+}
+
+var arr = multiply(2, 1, 2, 3); 
+console.log(arr); // [2, 4, 6]
+
+
+
+function sortArguments() {
+  var args = Array.from(arguments);
+  var sortedArgs = args.sort();
+  return sortedArgs;
+}
+console.log(sortArguments(5, 3, 7, 1)); // 1, 3, 5, 7
+
+var TargetInfo= [
+                { TargetId: 11, TargetSystemName: "GAA"  },
+                { TargetId: 32, TargetSystemName: "BOFC" },
+                { TargetId: 3, TargetSystemName: "FUN"   },
+                { TargetId: 4, TargetSystemName: "BW"    }
+               ];
+
+function sortArguments() {
+  var args = Array.from(arguments);
+  var sortedArgs = args.sort();
+  return sortedArgs;
+}
+console.log(TargetInfo); // 1, 3, 5, 7
+
+****************************************
+--Approach :1
+var TargetInfo= [
+                { TargetId: 1, TargetSystemName: "GAA"  },
+                { TargetId: 2, TargetSystemName: "BOFC" },
+                { TargetId: 3, TargetSystemName: "FUN"   },
+                { TargetId: 4, TargetSystemName: "BW"    }
+               ];
+  
+
+TargetInfo.forEach(element => {
+   element["Selected"] = true;
+  console.log(element);
+});
+
+--Approach :2
+var TargetInfo= [
+                { TargetId: 1, TargetSystemName: "GAA"  },
+                { TargetId: 2, TargetSystemName: "BOFC" },
+                { TargetId: 3, TargetSystemName: "FUN"   },
+                { TargetId: 4, TargetSystemName: "BW"    }
+               ];
+  
+
+TargetInfo.forEach(element => {
+   element["Selected"] = true;
+  console.log(element);
+});
+
+for (let elem in obj) {  
+  console.log( obj[elem] )
+}
+var TargetInfo= [
+                { TargetId: 1, TargetSystemName: "GAA"  },
+                { TargetId: 2, TargetSystemName: "BOFC" },
+                { TargetId: 3, TargetSystemName: "FUN"   },
+                { TargetId: 4, TargetSystemName: "BW"    }
+               ];
+TargetInfo.forEach(function(item, index, array) {
+  console.log(item, index);
+})
+console.log('**************');
+console.log(TargetInfo.length);
+console.log('**************');
+console.log('Loop over an Array');
+TargetInfo.forEach(function(item, index, array) {
+  console.log(item, index);
+});
+console.log('**************');
+console.log('Add to the end of an Array');
+TargetInfo.push({TargetId: 5, TargetSystemName: "BFC"});
+TargetInfo.forEach(function(item, index, array) {
+  console.log(item, index);
+});
+
+console.log('**************');
+console.log('Remove from the end of an Array');
+var last = TargetInfo.pop();
+TargetInfo.forEach(function(item, index, array) {
+  console.log(item, index);
+});
+
+
+console.log('**************');
+console.log('Remove from the front of an Array');
+var last = TargetInfo.shift();
+TargetInfo.forEach(function(item, index, array) {
+  console.log(item, index);
+});
+
+
+console.log('**************');
+console.log('Add to the front of an Array');
+var last = TargetInfo.shift();
+TargetInfo.forEach(function(item, index, array) {
+  console.log(item, index);
+});
+console.log('**************');
+console.log('Get the index of the object inside an array, matching a condition');
+a = [
+  {prop1:"abc",prop2:"qwe"},
+  {prop1:"bnmb",prop2:"yutu"},
+  {prop1:"zxvz",prop2:"qwrq"}];
+   TargetInfo= [
+                { TargetId: 1, TargetSystemName: "GAA"  },
+                { TargetId: 2, TargetSystemName: "BOFC" },
+                { TargetId: 3, TargetSystemName: "FUN"   },
+                { TargetId: 4, TargetSystemName: "BW"    }
+               ];
+    
+var index = TargetInfo.findIndex(x => x.TargetSystemName ==="FUN");
+console.log(index);
+console.log('**************');
+console.log('Remove an item by index position');
+var removedItem = TargetInfo.splice(1, 1);
+
+
+
+var itemsSource=[];
+itemsSource= function ()
+                    {
+                     var TargetInfo= [
+					{ TargetId: 1, TargetSystemName: "GAA"  },
+					{ TargetId: 2, TargetSystemName: "BOFC" },
+					{ TargetId: 3, TargetSystemName: "FUN"   },
+					{ TargetId: 4, TargetSystemName: "BW"    }
+				    ];
+                       return TargetInfo;
+                    };
+					itemsSource.forEach(function(item, index, array) {
+  console.log(item, index);
+  
+  
+ //https://codeburst.io/javascript-the-difference-between-foreach-and-for-in-992db038e4c2 
+ //For loops in array object 
+  var TargetInfo= [
+					{ TargetId: 1, TargetSystemName: "GAA"  },
+					{ TargetId: 2, TargetSystemName: "BOFC" },
+					{ TargetId: 3, TargetSystemName: "FUN"   },
+					{ TargetId: 4, TargetSystemName: "BW"    }
+					]
+for (let elem in TargetInfo) {  
+  console.log( TargetInfo[elem] )
+}
+  
+  
+var TargetInfo= [
+					{ TargetId: 1, TargetSystemName: "GAA"  },
+					{ TargetId: 2, TargetSystemName: "BOFC" },
+					{ TargetId: 3, TargetSystemName: "FUN"   },
+					{ TargetId: 4, TargetSystemName: "BW"    }
+					]
+console.log('********Approach ONE********');
+for (let elem in TargetInfo) {  
+  console.log( TargetInfo[elem ])
+}
+ 
+console.log( '********Approach TWO********' ) ;
+for (const color of TargetInfo){
+  console.log(color);
+}
+
+console.log( '********Approach THREE********' ) ;
+TargetInfo.forEach(item => console.log(item));
+
+
+var itemsSource=[];
+itemsSource= function ()
+                    {
+                     var TargetInfo= [
+					{ TargetId: 1, TargetSystemName: "GAA"  },
+					{ TargetId: 2, TargetSystemName: "BOFC" },
+					{ TargetId: 3, TargetSystemName: "FUN"   },
+					{ TargetId: 4, TargetSystemName: "BW"    }
+				    ];
+                       return TargetInfo;
+                    };
+
+console.log( '********Approach TWO********' ) ;
+for (const TargetSystemName of itemsSource()){
+  console.log(TargetSystemName.TargetSystemName);
+}
+
+--Checkbox issue in GAA
+var cars = [
+  {car: "Mercedes A 160", year: 2006, available: true, comesInBlack: 'yes'},
+  {car: "Citroen C4 Coupe", year: 2008, available: false, comesInBlack: 'yes'},
+  {car: "Audi A4 Avant", year: 2011, available: true, comesInBlack: 'no'},
+  {car: "Opel Astra", year: 2004, available: false, comesInBlack: 'yes'},
+  {car: "BMW 320i Coupe", year: 2011, available: false, comesInBlack: 'no'}
+];
+//One way
+for (i in cars) {
+  cars[i].checkbox = true;
+}
+//Second way
+cars.forEach(item=>item["CashBackOffer"] = true);	
+console.table(cars);
+
+//differences between an Object ({}) and an Array ([]).
+
+Object ({}) and an Array ([]).
+
+var cars = [
+  {car: "Mercedes A 160", year: 2006, available: true, comesInBlack: 'yes'},
+  {car: "Citroen C4 Coupe", year: 2008, available: false, comesInBlack: 'yes'},
+  {car: "Audi A4 Avant", year: 2011, available: true, comesInBlack: 'no'},
+  {car: "Opel Astra", year: 2004, available: false, comesInBlack: 'yes'},
+  {car: "BMW 320i Coupe", year: 2011, available: false, comesInBlack: 'no'}
+];
+console.log(cars.toString())
+Logs Data  as: [object Object],[object Object],[object Object],[object Object],[object Object]
+
+//TO see the data of Javascript array we can use JSON.stringify
+const cars = [
+  {car: "Mercedes A 160", year: 2006, available: true, comesInBlack: 'yes'},
+  {car: "Citroen C4 Coupe", year: 2008, available: false, comesInBlack: 'yes'},
+  {car: "Audi A4 Avant", year: 2011, available: true, comesInBlack: 'no'},
+  {car: "Opel Astra", year: 2004, available: false, comesInBlack: 'yes'},
+  {car: "BMW 320i Coupe", year: 2011, available: false, comesInBlack: 'no'}
+];
+for (i in cars) {
+  cars[i].offers = true;
+}
+console.table(cars);
+console.log(JSON.stringify(cars));
+console.log(JSON.parse(cars));
+console.table(cars);
+
+ 
+  
+Array(s):
+
+var person = {
+  name: "Mr. Frontend Mayhem",
+}
+console.log(person.toString()) // Logs "[object Object]"
+console.log(JSON.stringify(person)); WIll show teh results
+
+// Initialize object literal with curly brackets
+const Car = {
+    name: "BMW",
+    year: "2019",
+    SportsCar: "Yes",
+    Offer: function() {
+        return `Hi, my car name is ${this.name}!`;
+    },
+};
+console.log(JSON.stringify(Car));
+delete  Car.SportsCar
+console.log(JSON.stringify(Car));
+Car.Offer;
+Car.Offer();
+
+
+Working with JSON Data 
+
+--JavaScript Object
+var User = { 
+  first_name  :  "Kumar", 
+  last_name   :  "Palani", 
+  online     :  true ,
+  Working      :  true ,
+  Address      : "Sydney" 
+} 
+console.log(JSON.stringify(User));
+var UserJson=JSON.stringify(User);
+console.log(JSON.parse(UserJson));
+console.table('****************');
+console.table(JSON.parse(UserJson));
+
+
+JSON.stringify()
+The JSON.stringify() function converts an object to a JSON string.
+var s = '{"first_name" : "Sammy", "last_name" : "Shark", "location" : "Ocean"}';
+console.log(JSON.parse(s));
+
+
+Object(s):
+In contrast to Arrays, we generally want to know if an Object contains a certain property
+
+var cars = {car: "Mercedes A 160", year: 2006, available: true, comesInBlack: 'yes'};
+ 
+  // prints: 'We got ourselves a foo!'
+  if (cars.hasOwnProperty('comesInBlack')) {
+    console.log('We got ourselves a foo!');
+  } else {
+    console.log('No foo for you!');
+  }
+ 
+  // prints: Too drunk, cannot locate the bar. Football at my place! 
+  if (cars.hasOwnProperty('EMIOption')) {
+    console.log('We are at the bar, watching the football game');
+  } else {
+    console.log('Too drunk, cannot locate the bar. Football at my place!');
+  }
+  
+  //MUCH BETTER WAY USING FILTERS
+var cars = [
+  {car: "Mercedes A 160", year: 2006, available: true, comesInBlack: 'yes'},
+  {car: "Citroen C4 Coupe", year: 2008, available: false, comesInBlack: 'yes'}
+  ];
+  
+  if (cars.filter(e => e.available === true).length > 0) {
+	  console.log('Property present');
+  /* vendors contains the element we're looking for */
+}
+if (cars.some(e => e.comesInBlack === 'Insurance')) {
+  /* vendors contains the element we're looking for */
+   console.log('Property present');
+}
+
+//Filtering an array of objects
+
+const countries = [
+        { name: 'Nigeria', continent: 'Africa'},
+        { name: 'Nepal', continent: 'Asia'},
+        { name: 'Angola', continent: 'Africa'},
+        { name: 'Greece', continent: 'Europe'},
+        { name: 'Kenya', continent: 'Africa'},
+        { name: 'Greece', continent: 'Europe'}
+    ]
+
+let asianCountries = countries.filter(country => {
+        return country.continent === 'Asia';
+})
+
+console.log(asianCountries); // [{name: "Nepal", continent: "Asia"}]
+
+var heroes = [
+	{name: 'Batman', franchise: 'DC'},
+	{name: 'Ironman', franchise: 'Marvel'},
+	{name: 'Thor', franchise: 'Marvel'},
+	{name: 'Superman', franchise: 'DC'}
+];
+var marvelHeroes =  heroes.filter(function(hero) {
+	return hero.franchise == 'Marvel';
+});
+console.log(marvelHeroes);
+
+  
+   
+  var json = {
+    'homes': [{
+            "home_id": "1",
+            "price": "925",
+            "sqft": "1100",
+            "num_of_beds": "2",
+            "num_of_baths": "2.0",
+        }, {
+            "home_id": "2",
+            "price": "1425",
+            "sqft": "1900",
+            "num_of_beds": "4",
+            "num_of_baths": "2.5",
+        },   
+    ]
+}
+
+var newArray = homes.filter(function (el) {
+  return el.price <= 1000 &&
+         el.sqft >= 500 &&
+         el.num_of_beds >=2 &&
+         el.num_of_baths >= 2.5;
+});
+  console.log(newArray);
+  
+// Learn map, filter and reduce in Javascript
+
+This is the most basic way to call map
+The map() method creates a new array with the results of calling a provided function on every element in the calling array.
+ 
+var array1 = [1, 4, 9, 16];
+// pass a function to map
+const map1 = array1.map(x => x * 2);
+console.log(map1);
+// expected output: Array [2, 8, 18, 32]
+
+
+var heroes = [
+	{name: 'Batman', franchise: 'DC'},
+	{name: 'Ironman', franchise: 'Marvel'},
+	{name: 'Thor', franchise: 'Marvel'},
+	{name: 'Superman', franchise: 'DC'}
+];
+Var getNames=heroes.map(elem=> { 
+return elem.name;
+});
+ console.log(getNames);
+ Output: ["Batman", "Ironman", "Thor", "Superman"]
+ 
+ 
+// What you have
+var officers = [
+  { id: 20, name: 'Captain Piett' },
+  { id: 24, name: 'General Veers' },
+  { id: 56, name: 'Admiral Ozzel' },
+  { id: 88, name: 'Commander Jerjerrod' }
+];
+// What you need
+[20, 24, 56, 88]
+
+There are multiple ways to achieve this.
+You might want to do it by creating an empty array, then using .forEach(),
+.for(...of), or a simple .for() to meet your goal.
+
+Old approach:
+
+var officersIds = [];
+officers.forEach(function (officer) {
+  officersIds.push(officer.id);
+}); 
+
+var officersIds = [];
+officers.forEach(function (officer) {
+  officersIds.push(officer.id);
+});
+
+Notice how you have to create an empty array beforehand? Let’s see what it looks like when using .map():
+var officersIds = officers.map(function (officer) {
+  return officer.id
+});
+ 
+We can even be more concise with arrow functions (requires ES6 support, Babel or TypeScript)
+const officersIds = officers.map(officer => officer.id)
+ 
+//------reduce()
+var pilots = [
+  {
+    id: 10,
+    name: "Poe Dameron",
+    years: 14,
+  },
+  {
+    id: 2,
+    name: "Temmin 'Snap' Wexley",
+    years: 30,
+  },
+  {
+    id: 41,
+    name: "Tallissan Lintra",
+    years: 16,
+  },
+  {
+    id: 99,
+    name: "Ello Asty",
+    years: 22,
+  }
+];
+We need to know the total years of experience of all of them. With .reduce(), it’s pretty straightforward:
+ 
+ //Approach:1
+ var totalYears = pilots.reduce(function (accumulator, pilot) {
+  return accumulator + pilot.years;
+}, 0);
+
+ console.log(totalYears)
+ 
+//Approach:2
+ const totalYears = pilots.reduce((acc, pilot) => acc + pilot.years, 0)
+ console.log(totalYears)
+ console.log(totalYears)
+ 
+ //Combining .map(), .reduce(), and .filter()
+ 
+ var personnel = [
+  {
+    id: 5,
+    name: "Luke Skywalker",
+    pilotingScore: 98,
+    shootingScore: 56,
+    isForceUser: true,
+  },
+  {
+    id: 82,
+    name: "Sabine Wren",
+    pilotingScore: 73,
+    shootingScore: 99,
+    isForceUser: false,
+  },
+  {
+    id: 22,
+    name: "Zeb Orellios",
+    pilotingScore: 20,
+    shootingScore: 59,
+    isForceUser: false,
+  },
+  {
+    id: 15,
+    name: "Ezra Bridger",
+    pilotingScore: 43,
+    shootingScore: 67,
+    isForceUser: true,
+  },
+  {
+    id: 11,
+    name: "Caleb Dume",
+    pilotingScore: 71,
+    shootingScore: 85,
+    isForceUser: true,
+  },
+];
+
+var totalJediScore = personnel
+  .filter(function (person) {
+    return person.isForceUser;
+  })
+  .map(function (jedi) {
+    return jedi.pilotingScore + jedi.shootingScore;
+  })
+  .reduce(function (acc, score) {
+    return acc + score;
+  }, 0);
+
+And look how pretty it is with arrow functions:
+const totalJediScore = personnel
+  .filter(person => person.isForceUser)
+  .map(jedi => jedi.pilotingScore + jedi.shootingScore)
+  .reduce((acc, score) => acc + score, 0);
+ 
+Simplify your JavaScript – Use .some() and .find()
+
+var operatives = [
+  { id: 12, name: 'Baze Malbus', pilot: false },
+  { id: 44, name: 'Bodhi Rook', pilot: true },
+  { id: 59, name: 'Chirrut Îmwe', pilot: false },
+  { id: 122, name: 'Jyn Erso', pilot: false }
+];
+
+You want to know if there are any pilots among your operatives. 
+There are many ways to achieve that goal. 
+Most people will probably use .forEach() and do something like this:
+
+var operatives = [
+  { id: 12, name: 'Baze Malbus', pilot: false },
+  { id: 44, name: 'Bodhi Rook', pilot: true },
+  { id: 59, name: 'Chirrut Îmwe', pilot: false },
+  { id: 122, name: 'Jyn Erso', pilot: false }
+];
+
+
+var listHasPilots = false;
+operatives.forEach(function (operative) {
+  if (operative.pilot) {
+    listHasPilots = true;
+  }
+});
+
+var listHasPilots2 = operatives.some(function (operative) {
+  return operative.pilot;
+});
+console.log(listHasPilots)
+console.log(listHasPilots2)
+
+//output:true true
+
+var operatives = [
+  { id: 12, name: 'Baze Malbus', pilot: false },
+  { id: 44, name: 'Bodhi Rook', pilot: true },
+  { id: 59, name: 'Chirrut Îmwe', pilot: false },
+  { id: 122, name: 'Jyn Erso', pilot: false }
+];
+var firstPilot = operatives.find(function (operative) {
+  return operative.pilot;
+});
+
+const firstPilot2 = operatives.find(operative => operative.pilot);
+console.log(firstPilot)
+console.log(firstPilot2)
+
+{id: 44, name: "Bodhi Rook", pilot: true}
+{id: 44, name: "Bodhi Rook", pilot: true}
+
+  var myArray = new Array(); // Array constructor (try to avoid)
+  // is the equivalent of:
+  var myArray = []; // Array literal (preferred way)
+  var anotherArray = [1, 5, "string", {hello: "world"}] // Array with some elements of mixed type
+  
+  myArray.push("this"); // push a string on the stack
+  myArray.push("is", "neat", "!"); // push multiple comma separated elements, in this case 3 strings. 
+ 
+  console.log(myArray); // prints ["this", "is", "neat", "!"]
+ 
+  var a = myArray.pop(); // pops the last element from the stack
+  console.log(a); // prints "!"
+  console.log(myArray); // prints ["this", "is", "neat"]
+ 
+  // remove n elements starting at index i from myArray, where i = 0 and n = 2 in this case.
+  // splice(i, n, k0, k1, ..., kn) modifies myArray, returns spliced chunk as an array and optionally inserts k0-kn new elements at index i.
+  var b = myArray.splice(0, 2); // not to be confused with slice()
+  console.log(b); // prints ["this", "is"]
+  console.log(myArray); // prints ["neat"]
+ 
+  // we can also use splice to add new elements at index i
+  myArray.splice(0, 0 ,"isn't", "this"); // remove n = 0 elements and insert "isn't" and "this" starting at index i = 0
+  myArray.push("?"); // push "?" at the end of the stack
+  console.log(myArray); // prints ["isn't", "this", "neat", "?"]
+ 
+  // we could have done last two operations in one step by doing the following
+  myArray = ["this", "is", "neat", "?"];
+  myArray.splice(0, 2,"isn't", "this");
+  console.log(myArray); // prints ["isn't", "this", "neat", "?"]
+  
+  
+
+
+ 
+  
+  var heroes = [
+	{name: 'Batman', franchise: 'DC'},
+	{name: 'Ironman', franchise: 'Marvel'},
+	{name: 'Thor', franchise: 'Marvel'},
+	{name: 'Superman', franchise: 'DC'}
+];
+let copyArray = [...heroes]; 
+console.log(heroes);// count 4
+copyArray.push({name: 'SpiderMan', franchise: 'DC'});
+console.log(copyArray);// count 5
+console.log(heroes);// count 4
+  
+var heroes = [
+	{name: 'Batman', franchise: 'DC'},
+	{name: 'Ironman', franchise: 'Marvel'},
+	{name: 'Thor', franchise: 'Marvel'},
+	{name: 'Superman', franchise: 'DC'}
+];
+let SliceArray = heroes.slice();
+console.log(heroes);// count 4
+heroes.shift();
+console.log(heroes);// count 3
+console.log(SliceArray);// count 4
+
+
+//JavaScript Demo: Expressions - Spread syntax
+function sum(x, y, z) {
+  return x + y + z;
+}
+
+const numbers = [1, 2, 3,5];
+
+console.log(sum(...numbers));
+// expected output: 6
+
+console.log(sum.apply(null, numbers));
+// expected output: 6
+
+
+//JavaScript | Callbacks
+
+function add(a, b , callback){ 
+   document.write(`The sum of ${a} and ${b} is ${a+b}.` +"<br>"); 
+   callback(); 
+   } 
+     
+   // disp() function is called just 
+   // after the ending of add() function  
+   function disp(){ 
+   document.write('This must be printed after addition'); 
+   } 
+     
+   // Calling add() function 
+   add(5,6,disp);   
+   
+   // promise example.
+	
+var promise = $http.get("http://localhost:3036/api/Country");
+promise.success(function(name) {
+  // console.log("Your name is: " + name);
+   for (let elem in name) {  
+  console.log( name[elem] )
+}
+  
+});
+promise.error(function(response, status) {
+   console.log("The request failed with response " + response + " and status code " + status);
+});
+
+
+$http.get("http://localhost:3036/api/Country")
+  .success(function(name) {
+	 for (let elem in name) {  
+  console.log( name[elem] )}
+ })
+ .error(function(response, status) {
+    console.log("The request failed with response " + response + " and status code " + status);
+ });
+  
+  
+  
+  $http.get("http://localhost:3036/api/Country")
+  .then(
+    /* success */
+    function(response) {
+     for (let elem in response) {  
+  console.log("Country name is: " response[elem] )}
+    },
+    /* failure */
+    function(error) {
+      console.log("The request failed: " + error);
+  });
+  
+  
+$http.get("http://localhost:3036/api/Country")
+  .then(
+    /* success */
+    function(response) {
+      console.log("Your name is: " + response.data);
+	   var TargetInfo={};
+	   TargetInfo=response.data;
+	  for (let elem inTargetInfo ) {  
+	 
+  console.log( TargetInfo[elem ])
+}
+    },
+    /* failure */
+    function(error) {
+      console.log("The request failed: " + error);
+  });
+  
+  
+  $http.get("http://localhost:3036/api/Country")
+  .then(
+    /* success */
+    function(response) {
+      console.log("Your name is: " + response.data);
+	  // var TargetInfo={};
+	 // var  TargetInfo=response.data;
+	  for (let elem in response.data) {  
+       console.log( response.data[elem ])
+}
+    },
+    /* failure */
+    function(error) {
+      console.log("The request failed: " + error);
+  });
+  
+  var testApp = angular  
+    .module("testModule", [])  
+    .controller("testController", function($scope, $http) {  
+        $http.get('http://localhost:3036/api/Country').then(function(response) {  
+		for (let elem in response.data) {  
+		console.log( response.data[elem ])
+		}
+            $scope.students = response.data;  
+        });  
+    });  
+	
+	// https://digitaldrummerj.me/angular-running-service-in-console/
+	var t = angular.element(document.querySelector('body')).injector().get('YourFactory');
+	t.myServiceMethod().then(function(response) { console.log(response); });
+	
+	var t = angular.element(document.querySelector('body')).injector().get('CountryService');
+	t.getAllCountrySer().then(function(response) { console.log(response); });
+	
+	angular.element(document.body).injector().get('CountryService')
+	
+var $inj = angular.injector(['CountryApp']);
+var serv = $inj.get('CountryService');
+serv.getAllCountrySer();
+   
+   
+   
+WOrking :
+var app = angular.module('app',[]);
+app.factory('ExampleService',function(){
+    return {
+        f1 : function(world){
+            return 'Hello' + world;
+        }
+    };
+});
+var $inj = angular.injector(['app']);
+var serv = $inj.get('ExampleService');
+serv.f1("World");
+
+
+
+   
+var app = angular.module('app',[]);
+
+app.factory('ExampleService',function(){
+    return {
+        f1 : function(world){
+			return $http.get("http://localhost:3036/api/Country");  
+            //return 'Hello' + world;
+        }
+    };
+});
+var $inj = angular.injector(['app']);
+var serv = $inj.get('dataFactory');
+serv.getCustomers();
+   
+   
+   
+var $inj = angular.injector(['customersApp']);
+var serv = $inj.get('dataFactory');
+serv.getCustomers();
+
+ //Getting the result in console window now.
+ var t = angular.element(document.querySelector('div')).injector().get('dataFactory');
+ t.getCustomers().then(function(response) { 
+ for (let elem in response.data) {  
+		console.log( response.data[elem ])
+		}
+ console.log(response); });
+
+var t = angular.element(document.querySelector('div')).injector().get('dataFactory');
+ t.getCustomers().then(function(response) {  
+console.log('Data from factory: '+response.data);});
+
+
+
+var t = angular.element(document.querySelector('div')).injector().get('dataFactory');
+t.getCustomers().then(function(response) { 
+var fruits=response.data;
+console.log(JSON.stringify(fruits));
+});
+fruits.forEach(function(item, index, array) {
+  console.log(item, index);
+});
+
+	
+var t = angular.element(document.querySelector('div')).injector().get('dataFactory');
+t.getCustomers().then(function(response) { 
+var Output=response.data;
+console.log(JSON.stringify(Output));
+});
+
+var t = angular.element(document.querySelector('div')).injector().get('dataFactory');
+t.getCustomers().then(function(response) { 
+var Output=response.data;
+console.log(JSON.stringify(Output));
+});
+
+//alert(angular.toJson(query.TargetSystems));
+//alert(JSON.stringify(query.TargetSystems));
+//**************************************************
+
+function reqListener () {
+  console.log(this.responseText);
+}
+
+var oReq = new XMLHttpRequest();
+oReq.addEventListener("load", reqListener);
+oReq.open("GET", "http://localhost:3036/api/Country");
+oReq.send();
+
+//**************************************************
+
+function reqListener () {
+  console.log(this.responseText);
+  console.log('Hello, Snippets!');
+	document.body.innerHTML = '';
+	var p = document.createElement('p');
+	p.textContent = this.responseText;
+	document.body.appendChild(p);
+}
+
+var oReq = new XMLHttpRequest();
+oReq.addEventListener("load", reqListener);
+oReq.open("GET", "http://localhost:3036/api/Country");
+oReq.send();
+
+//**************************************************
+Understanding Object.keys Method In JavaScript
+
+var heroes = [
+	{"name": 'Batman',   "franchise": 'DC'},
+	{"name": 'Ironman',  "franchise": 'Marvel'},
+	{"name": 'Thor',     "franchise": 'Marvel'},
+	{"name": 'Superman', "franchise": 'DC'}
+];
+console.log(Object.keys(obj))
+
+// Output
+["name", "age"]4) ["0", "1", "2", "3"]
+0: "0"
+1: "1"
+2: "2"
+3: "3"
+length: 4
+//**************************************************
+var heroes = 
+	{"name": "Batman",   "franchise": "DC"}
+console.log(Object.keys(heroes));
+(2) ["name", "franchise"]
+0: "name"
+1: "franchise"
+
+//**************************************************
+JavaScript Ternary Operator
+
+let status = false;
+status ? console.log("Status is true.") 
+
+How To Check If An Object Is Empty In JavaScript
+
+let obj = {};
+if(Object.keys(obj).length > 0){
+  console.log('Object is not empty');
+} else {
+  console.log('Object is empty');
+}
+//**************************************************
+How To Check If Object Has Key In JavaScript
+let obj = {
+  'name' : 'Roy'
+}
+
+if('name' in obj){
+  console.log('Found')
+} else {
+  console.log('Not found')
+}
+//**************************************************
+
+
+Get Array Unique Values
+https://devinduct.com/blogpost/26/8-useful-javascript-tricks
+
+const cars = [
+    'Mazda', 
+    'Ford', 
+    'Renault', 
+    'Opel', 
+    'Mazda'
+]
+const uniqueWithArrayFrom = Array.from(new Set(cars));
+console.log(uniqueWithArrayFrom); // outputs ["Mazda", "Ford", "Renault", "Opel"]
+
+const uniqueWithSpreadOperator = [...new Set(cars)];
+console.log(uniqueWithSpreadOperator);// outputs ["Mazda", "Ford", "Renault", "Opel"]
+
+//**************************************************
+Map the Array (without the Array.map)
+const cities = [
+    { name: 'Paris', visited: 'no' },
+    { name: 'Lyon', visited: 'no' },
+    { name: 'Marseille', visited: 'yes' },
+    { name: 'Rome', visited: 'yes' },
+    { name: 'Milan', visited: 'no' },
+    { name: 'Palermo', visited: 'yes' },
+    { name: 'Genoa', visited: 'yes' },
+    { name: 'Berlin', visited: 'no' },
+    { name: 'Hamburg', visited: 'yes' },
+    { name: 'New York', visited: 'yes' }
+];
+
+const cityNames = Array.from(cities, ({ name}) => name);
+console.log(cityNames);
+// outputs ["Paris", "Lyon", "Marseille", "Rome", "Milan", "Palermo", "Genoa", "Berlin", "Hamburg
+
+//**************************************************
+Destructuring the Raw Data
+
+const rawUser = {
+   name: 'John',
+   surname: 'Doe',
+   email: 'john@doe.com',
+   displayName: 'SuperCoolJohn',
+   joined: '2016-05-05',
+   image: 'path-to-the-image',
+   followers: 45
+}
+let user = {}, userDetails = {};
+({ name: user.name, surname: user.surname, ...userDetails } = rawUser);
+
+console.log(user); // outputs { name: "John", surname: "Doe" }
+console.log(userDetails); // outputs {email: "john@doe.com", displayName: "SuperCoolJohn", joined: "2016-05-05", image: "path-to-the-image", followers: 45}
+
+//**************************************************
+
+Dynamic Property Names
+
+const dynamic = 'email';
+let user = {
+    name: 'John',
+    [dynamic]: 'john@doe.com'
+}
+console.log(user); // outputs { name: "John", email: "john@doe.com" }
+//**************************************************
+String Interpolation
+ const user = {
+  name: 'John',
+  surname: 'Doe',
+  details: {
+    email: 'john@doe.com',
+    displayName: 'SuperCoolJohn',
+    joined: '2016-05-05',
+    image: 'path-to-the-image',
+    followers: 45
+  }
+}
+
+const printUserInfo = (user) => { 
+  const text = `The user is ${user.name} ${user.surname}. Email: ${user.details.email}. Display Name: ${user.details.displayName}. ${user.name} has ${user.details.followers} followers.`
+  console.log(text);
+}
+printUserInfo(user);
+//**************************************************
+
+Create a Self-calling Function
+(function(){
+    // some private code that will be executed automatically
+})();  
+(function(a,b){
+    var result = a+b;
+    return result;
+})(10,20)
+//**************************************************
+ Don’t use delete to remove an item from array
+ var items = [12, 548 ,'a' , 2 , 5478 , 'foo' , 8852, , 'Doe' ,2154 , 119 ]; 
+items.length; // return 11 
+delete items[3]; // return true 
+items.length; // return 11 
+
+4
+5
+6
+7
+ 
+var items = [12, 548 ,'a' , 2 , 5478 , 'foo' , 8852, , 'Doe' ,2154 , 119 ]; 
+items.length; // return 11 
+items.splice(3,1) ; 
+items.length; // return 10 
+//**************************************************
+
+function getCategory(age) {  
+    var category = "";  
+    switch (true) {  
+        case isNaN(age):  
+            category = "not an age";  
+			console.log(category);
+            break;  
+        case (age &gt;= 50):  
+            category = "Old";  
+				console.log(category);
+            break;  
+        case (age &lt;= 20):  
+            category = "Baby";
+	console.log(category);			
+            break;  
+        default:  
+            category = "Young";  
+				console.log(category);
+            break;  
+    };  
+    return category;  
+}  
+getCategory(5);  // will return "Baby"
+ //**************************************************
+ 
+function reqListener () {
+  console.log(this.responseText);
+}
+
+var oReq = new XMLHttpRequest();
+oReq.addEventListener("load", reqListener);
+oReq.open("GET", "https://api.github.com/users/hadley/orgs");
+oReq.send();
+
+//**************************************************
+Copying Simple Arrays
+push
+Spread
+slice
+Array.from
+_.clone
+
+//**************************************************
+
+Scheduling Tasks in JavaScript Using setTimeout & setInterval
+setTimeout
+
+The setTimeout method expects 2 arguments: a reference to a callback function and a delay in milliseconds.
+The following will print a message to the console after 1 second:
+
+setTimeout(() => {
+  console.log('Alligator!!!!');
+}, 1000);
+
+function gator() {
+  console.log('Alligator!!!!');
+}
+setTimeout(gator, 1000);
+
+//**************************************************
+
+
+const bears = ["Yogi", "Baloo", "Po", "Winnie", "Bungle"];
+function greet(bear) {
+    console.log(“Hello there, ” + bear + ”!”);
+}
+for (let i = 0; i < bears.length; i++) {
+    greet(bears[i]);
+}
+
+//forEach method
+ 
+  var cars = [
+  {car: "Mercedes A 160", year: 2006, available: true, comesInBlack: 'yes'},
+  {car: "Citroen C4 Coupe", year: 2008, available: false, comesInBlack: 'yes'},
+  {car: "Audi A4 Avant", year: 2011, available: true, comesInBlack: 'no'},
+  {car: "Opel Astra", year: 2004, available: false, comesInBlack: 'yes'},
+  {car: "BMW 320i Coupe", year: 2011, available: false, comesInBlack: 'no'}
+];
+cars.forEach(function (item, key) {
+    console.log(key);
+    console.log(item);
+});
+ 
+
+var cars = [
+  {car: "Mercedes A 160", year: 2006, available: true, comesInBlack: 'yes'},
+  {car: "Citroen C4 Coupe", year: 2008, available: false, comesInBlack: 'yes'},
+  {car: "Audi A4 Avant", year: 2011, available: true, comesInBlack: 'no'},
+  {car: "Opel Astra", year: 2004, available: false, comesInBlack: 'yes'},
+  {car: "BMW 320i Coupe", year: 2011, available: false, comesInBlack: 'no'}
+];
+
+function greet(item,key) {
+    console.log(`Hello ${key} Congrats on new car :`,item);
+}
+cars.forEach(function (item, key) {
+    greet(item,key);
+});
+
+var cars = [
+  {car: "Mercedes A 160", year: 2006, available: true, comesInBlack: 'yes'},
+  {car: "Citroen C4 Coupe", year: 2008, available: false, comesInBlack: 'yes'},
+  {car: "Audi A4 Avant", year: 2011, available: true, comesInBlack: 'no'},
+  {car: "Opel Astra", year: 2004, available: false, comesInBlack: 'yes'},
+  {car: "BMW 320i Coupe", year: 2011, available: false, comesInBlack: 'no'}
+];
+Object.keys(cars).forEach(key => {
+  console.log(key);        // the name of the current key.
+  console.log(cars[key]); // the value of the current key.
+});
+
+var cars = [
+  {car: "Mercedes A 160", year: 2006, available: true, comesInBlack: 'yes'},
+  {car: "Citroen C4 Coupe", year: 2008, available: false, comesInBlack: 'yes'},
+  {car: "Audi A4 Avant", year: 2011, available: true, comesInBlack: 'no'},
+  {car: "Opel Astra", year: 2004, available: false, comesInBlack: 'yes'},
+  {car: "BMW 320i Coupe", year: 2011, available: false, comesInBlack: 'no'}
+];
+Object.keys(cars).forEach(key => {
+  console.log(`the name of the current key: `+key);   
+  console.log(cars[key]); 
+});
+
+
+// How to use the Fetch API with vanilla JS
+Examplemple:  https://jsonplaceholder.typicode.com/posts
+
+fetch('https://jsonplaceholder.typicode.com/posts').then(function (response) {
+	// The API call was successful!
+	return response.json();
+}).then(function (data) {
+	// This is the JSON from our response
+	console.log(data);
+}).catch(function (err) {
+	// There was an error
+	console.warn('Something went wrong.', err);
+});
+
+
+Error handling with the Fetch API
+
+fetch('https://jsonplaceholder.typicode.com/postses').then(function (response) {
+	// The API call was successful!
+	return response.json();
+}).then(function (data) {
+	// This is the JSON from our response
+	console.log(data);
+}).catch(function (err) {
+	// There was an error
+	console.warn('Something went wrong.', err);
+});
+
+//Proper way to  call the promise 
+fetch('https://jsonplaceholder.typicode.com/postses').then(function (response) {
+	// The API call was successful!
+	if (response.ok) {
+		return response.json();
+	} else {
+		return Promise.reject(response);
+	}
+}).then(function (data) {
+	// This is the JSON from our response
+	console.log(data);
+}).catch(function (err) {
+	// There was an error
+	console.warn('Something went wrong.', err);
+});
+
+
+
+//**************************************************
+// Create a Promise object
+var sayHello = new Promise(function (resolve, reject) {
+
+	reject('Unable to say hi.');
+
+	// In 5 seconds, resolve the Promise.
+	// Pass along "Hi, universe!" to any callback methods
+	setTimeout(function () {
+		resolve('Hi, universe!');
+	}, 5000);
+
+});
+// Will warn "Unable to say hi." in the console.
+sayHello.then(function (msg) {
+	console.log(msg);
+}).catch(function (err) {
+	console.warn(err);
+});
+
+
+// string interpolation in javascript
+
+console.log('string text line 1\n' +
+'string text line 2');
+string text line 1
+string text line 2
+
+console.log(`string text line 1
+string text line 2`);
+
+string text line 1
+string text line 2
+
+
+var msg= 'Hello  Microsoft';
+function greet(para) {
+	msg='Hello  GoldmanSachs';
+    console.log(para);
+}
+
+greet(msg);
+
+***************************************************
+Boost your JavaScript Debugging Skills With These Console Tricks
+https://medium.com/better-programming/boost-your-javascript-debugging-skills-with-these-console-tricks-ab984c70298a
+
+The console object provides access to the browser's debugging console
+
+function sayHello(name) {
+  console.log(name)
+}
+
+sayHello('kumar')
+Output:kumar
+
+console.count
+
+var Customer= [   
+   { Name:'Kumar',  age: 43, Address:'Melbourne' },
+   { Name:'Palani', age: 13, Address:'Melbourne' },
+   { Name:'Naidu',  age: 18, Address:'Melbourne' }
+];
+
+
+console.table(Customer);
+console.dir(Customer);
+thisThing1=1;
+
+if (thisThing1) 
+{  
+debugger;
+console.debug('Im in DEBUG mode');
+}
+else
+console.info('Im not INFO mode');
+
+***************************************************
+
+fetch('https://jsonplaceholder.typicode.com/todos/1') 
+.then(response => response.json()) 
+.then(json => console.log(json))
+
+fetch('http://localhost:1701/api/entries/') 
+.then(response => response.json())
+.then(json => console.log(json))
+
+
+const response = await fetch('http://localhost:1701/api/entries/');
+const myJson = await response.json();
+console.log(JSON.stringify(myJson));
+
+var xhr = new XMLHttpRequest();
+xhr.open("GET", "http://localhost:1701/api/entries/", true);
+xhr.onreadystatechange = function() {
+  if (xhr.readyState == 4) {
+    // JSON.parse does not evaluate the attacker's scripts.
+    var resp = JSON.parse(xhr.responseText);
+	console.log(JSON.stringify(xhr.responseText));
+  }
+}
+xhr.send();
+***************************************************
+var TargetInfo= [
+                { TargetId: 1, TargetSystemName: "GAA"  },
+                { TargetId: 2, TargetSystemName: "BOFC" },
+                { TargetId: 3, TargetSystemName: "FUN"   },
+                { TargetId: 4, TargetSystemName: "BW"    }
+               ];
+			   
+  let product_names = [];
+  for (let i=0; i<TargetInfo.length; i+=1) {
+ product_names.push(TargetInfo[i].Selected = true);
+  }
+console.table(TargetInfo);
+***************************************************
+var students = [{
+    name: "Mike",
+    track: "track-a",
+    achievements: 23,
+    points: 400,
+  },
+  {
+    name: "james",
+    track: "track-a",
+    achievements: 2,
+    points: 21,
+  },
+]
+
+students.forEach(myFunction);
+
+function myFunction(item, index) {
+  for (var key in item) {
+    console.log(item[key])
+  }
+}
+
+***************************************************
+https://stackoverflow.com/questions/16626735/how-to-loop-through-an-array-containing-objects-and-access-their-properties
+
+Some use cases of looping through an array in the functional programming way in JavaScript:
+
+1. Just loop through an array
+const myArray = [{x:100}, {x:200}, {x:300}];
+
+myArray.forEach((element, index, array) => {
+    console.log(element.x); // 100, 200, 300
+    console.log(index); // 0, 1, 2
+    console.log(array); // same myArray object 3 times
+});
+Note: Array.prototype.forEach() is not a functional way strictly speaking, as the function it takes as the input parameter is not supposed to return a value, which thus cannot be regarded as a pure function.
+
+2. Check if any of the elements in an array pass a test
+const people = [
+    {name: 'John', age: 23}, 
+    {name: 'Andrew', age: 3}, 
+    {name: 'Peter', age: 8}, 
+    {name: 'Hanna', age: 14}, 
+    {name: 'Adam', age: 37}];
+
+const anyAdult = people.some(person => person.age >= 18);
+console.log(anyAdult); // true
+***************************************************
+const people = [ {name: "john", age:23},
+                {name: "john", age:43},
+                {name: "jim", age:101},
+                {name: "bob", age:67} ];
+
+const john = people.find(person => person.name === 'john');
+console.log(john);
+
+
+
+**************************************************
+var x1 = new Object();    // A new Object object
+var x2 = new String();    // A new String object
+var x3 = new Number();    // A new Number object
+var x4 = new Boolean();   // A new Boolean object
+var x5 = new Array();     // A new Array object
+var x6 = new RegExp();    // A new RegExp object
+var x7 = new Function();  // A new Function object
+var x8 = new Date();      // A new Date object
+
+
+var x1 = {};            // new object
+var x2 = "";            // new primitive string
+var x3 = 0;             // new primitive number
+var x4 = false;         // new primitive boolean
+var x5 = [];            // new array object
+var x6 = /()/           // new regexp object
+var x7 = function(){};  // new function object
+
+
+*******************************
+
+var Mercedes =  {car: "Mercedes A 160", year: 2006, available: true, comesInBlack: 'yes'};
+var BMW =  {car: "Citroen C4 Coupe", year: 2008, available: false, comesInBlack: 'yes'};
+console.log({Mercedes ,BMW });
+
+const deleteMe=()=> console.trace('bye bye database');
+deleteMe();
+
+var Mercedes = {CarName: "BMW 320i Coupe", year: 2011, available: false, comesInBlack: 'no'}
+function CarDisplay(car)
+{
+const{CarName,year}=car;
+return `CCarNamear display ${CarName}  ${year}`;
+}
+
+console.log(CarDisplay(Mercedes));
+
+Loops 
+const Orderamount3 =[25,50,75,120,300]
+const Sumtotal =Orderamount3.reduce((acc,cur)=> acc+cur); console.log(Sumtotal);

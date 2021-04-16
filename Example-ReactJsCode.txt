@@ -1,0 +1,103 @@
+import './App.css';
+import restaurant from "./restaurant.jpg";
+function Header(props) {
+  console.log(props)
+  return (
+    <header>
+      {/* <h1>Kumar Naidu's Kitchen</h1> */}
+      <h1>{props.KitchenName}</h1>
+      <h1>{props.KitchenName2}</h1>
+    </header>
+  );
+}
+
+function Main(props) {
+  return (
+    <section>
+      {/* <p>We serve the most delicious food around.</p> */}
+      <h1>{props.delicious}</h1>
+      <img  src={restaurant} height={200}  alt="napkin and silverware at a restaurant table"></img>
+      <br/>
+      <img src="https://github.com/kumar-code5.png" height={200} />
+
+      <ul style={{ textAlign: "left", color:'black', background:'Green' }}>
+     {/* {props.Dishes.map(dish=>(<li>{dish.title}</li>))} */}
+     {props.Dishes.map(dish=><li key={dish.id}>{dish.title}</li>)}
+
+     {/* {props.Dishes.map(dish=>(dish))} */}
+     </ul>
+    
+    </section>
+  );
+}
+
+function Footer(props) {
+  return (
+    <footer>
+      {/* <p>It's true.</p> */}
+      {/* <h1>{props.year}</h1>
+      <h1>{props.day}</h1> */}
+      Hi! Today's  menu {props.day}, year {props.year}. !
+     
+    </footer>
+  );
+}
+
+const dishes = [
+  "Biryani ",
+  "Noodles",
+  "Chicken-Tikka",
+  "Chicken-Tandoori"
+];
+
+//dishes.map(dish=>{console.log(dish)});
+
+const dishObjects = dishes.map((dish, i) => ({
+  id: i,
+  title: dish
+}));
+
+console.table(dishObjects);
+console.table(dishes);
+
+function App() {
+  return (
+    // <div className="App">
+    <>
+      <Header KitchenName="Kumar Resturant" />
+      {/* <Header KitchenName2="Value coming from Second props" /> */}
+       <Main delicious="serve the most delicious food around" Dishes={dishObjects}/>
+      <Footer day ="23"  year={new Date().getFullYear()}/>
+      </>
+    // </div>
+
+
+  );
+}
+export default App;
+
+**********************************************************
+
+import React from 'react';
+import ReactDOM from 'react-dom';
+import './index.css';
+import App from './App';
+
+ReactDOM.render(
+  // React.createElement("h1",
+  // {style :{color:"blue"}  },
+  // "Hey hi kumar to reactJS"),
+
+//  <ul>
+//    <li>Monday</li>
+//    <li>Tueday</li>
+//    <li>hh</li>
+//  </ul>,
+//   document.getElementById('root')
+
+<App />, document.getElementById("root")
+);
+
+##################################################################
+
+

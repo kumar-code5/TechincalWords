@@ -1,0 +1,104 @@
+
+**************Equality Function**************
+console.log("Testing Equality"== new String("Testing Equality"));
+console.log("Testing Equality"=== new String("Testing Equality"));
+
+console.log(1== "1");
+console.log(1=== "1");
+
+let name;
+console.log(name);
+let Age=35;
+console.log(Age);
+
+
+console.log(typeof null);
+console.log(typeof undefined);
+
+**************Closure Function**************
+
+const add= (function(){
+let counter=0;
+return function(){counter++; return counter}
+})();
+
+add();
+add();
+add();
+
+**************JavaScript For In & For Of Loops**************
+const posts ={
+'id':1,
+'Title':'Javascript',
+'Body':'New concepts'
+}
+for (let post in posts) {  
+  console.log( posts[post])
+}
+console.log(JSON.stringify(posts));
+var Newstring =JSON.stringify(posts);
+console.log(typeof Newstring);
+console.log(Newstring);
+console.log(posts);
+
+
+OP:
+{"id":1,"Title":"Javascript","Body":"New concepts"}
+{id: 1, Title: "Javascript", Body: "New concepts"}
+
+let numbers=[2,4,6,8,12]
+for (let number in numbers) {  
+  console.log( numbers[number])
+}
+
+let numbers=[2,4,6,8,12]
+let doubles = numbers.map(function(num) {
+console.log( num * 2);
+  return num * 2
+})
+console.log( doubles);
+
+
+var cars = [
+  {car: "Mercedes A 160", year: 2006, available: true, comesInBlack: 'yes'},
+  {car: "Citroen C4 Coupe", year: 2008, available: false, comesInBlack: 'yes'},
+  {car: "Audi A4 Avant", year: 2011, available: true, comesInBlack: 'no'},
+  {car: "Opel Astra", year: 2004, available: false, comesInBlack: 'yes'},
+  {car: "BMW 320i Coupe", year: 2011, available: false, comesInBlack: 'no'}
+];
+
+//Option:1
+for (car in cars) {
+   console.log( cars[car])
+}
+//Option:1
+for (car of cars) {
+  console.log(car)
+}
+
+var obj    = {
+cat:       "🐱",
+Weight:     "🏋️‍ ",
+Swimming:   " 🏊‍"
+}
+console.log(Object.keys(obj)); // Returns only key 
+(3) ["cat", "Weight", "Swimming"]
+0: "cat"
+1: "Weight"
+2: "Swimming"
+
+console.log(Object.entries(obj));// Returns all key and values
+(3) [Array(2), Array(2), Array(2)]
+0: (2) ["cat", "🐱"]
+1: (2) ["Weight", "🏋️‍ "]
+2: (2) ["Swimming", " 🏊‍"]
+
+
+
+SetTimeout
+
+Settimeput(Greeting, 3000, KumarNaidu)
+Functtion Greeting(x)
+{
+console.log(Hello `{x}`)
+}
